@@ -1,0 +1,55 @@
+{
+  "sectionLabel": "Notre travail",
+  "title": "Projets en vedette",
+  "subtitle": "Des résultats concrets pour de vraies entreprises",
+  "projects": [
+    {
+      "id": "erp-caribbean",
+      "name": "Système ERP",
+      "client": "Distributeur des Caraïbes",
+      "description": "Système complet de planification des ressources d'entreprise avec gestion des stocks, des ventes, des achats et de la comptabilité intégrée.",
+      "tags": ["ERP", "React", "Node.js", "PostgreSQL"],
+      "result": "Réduction du temps de gestion de 70 %"
+    },
+    {
+      "id": "delivery-rd",
+      "name": "Application Delivery RD",
+      "client": "Start-up locale",
+      "description": "Application mobile de livraison avec suivi en temps réel, plusieurs restaurants et système de paiement intégré.",
+      "tags": ["React Native", "Node.js", "Socket.io", "Stripe"],
+      "result": "Plus de 500 commandes quotidiennes traitées"
+    },
+    {
+      "id": "fashion-ecommerce",
+      "name": "E-commerce Mode Dominicaine",
+      "client": "Boutique locale",
+      "description": "Boutique en ligne complète avec catalogue de produits, passerelle de paiement, gestion des expéditions et panneau d'administration.",
+      "tags": ["Next.js", "Stripe", "PostgreSQL", "AWS"],
+      "result": "Augmentation de 300 % des ventes en ligne"
+    },
+    {
+      "id": "analytics-dashboard",
+      "name": "Tableau de bord Analytics",
+      "client": "Groupe d'entreprises",
+      "description": "Panneau de Business Intelligence centralisé avec des données en temps réel provenant de 8 entreprises du groupe.",
+      "tags": ["React", "Python", "PostgreSQL", "Redis"],
+      "result": "Données de 8 entreprises dans un seul panneau"
+    },
+    {
+      "id": "bank-chatbot",
+      "name": "Chatbot IA",
+      "client": "Banque locale",
+      "description": "Agent d'intelligence artificielle pour le service client capable de résoudre les questions bancaires fréquentes.",
+      "tags": ["Claude AI", "Node.js", "React", "Socket.io"],
+      "result": "80 % des requêtes résolues automatiquement"
+    },
+    {
+      "id": "hotel-reservations",
+      "name": "Système de réservation",
+      "client": "Hôtel boutique",
+      "description": "Plateforme de gestion des réservations avec calendrier interactif, paiements en ligne et confirmations automatiques.",
+      "tags": ["React", "Node.js", "Stripe", "Twilio"],
+      "result": "Taux d'occupation passé de 65 % à 91 %"
+    }
+  ]
+}

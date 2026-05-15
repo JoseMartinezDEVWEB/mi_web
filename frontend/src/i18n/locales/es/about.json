@@ -1,0 +1,32 @@
+{
+  "sectionLabel": "Sobre nosotros",
+  "title": "Democratizando la tecnología en Latinoamérica",
+  "paragraph1": "Somos una empresa dominicana fundada en 2019 con la misión de hacer que las soluciones tecnológicas de clase mundial sean accesibles para empresas de todos los tamaños en República Dominicana y Latinoamérica.",
+  "paragraph2": "Nuestro equipo de desarrolladores, diseñadores y estrategas digitales trabaja con pasión para crear sistemas que no solo funcionan perfectamente, sino que generan resultados medibles y transforman la manera en que nuestros clientes hacen negocios.",
+  "timeline": {
+    "title": "Nuestra historia",
+    "events": [
+      { "year": "2019", "event": "Fundación de J4TechnologyIsNow en Santo Domingo" },
+      { "year": "2020", "event": "Primer sistema empresarial ERP implementado" },
+      { "year": "2021", "event": "Expansión al desarrollo de aplicaciones móviles" },
+      { "year": "2022", "event": "Integración de Inteligencia Artificial en nuestros sistemas" },
+      { "year": "2023", "event": "Más de 30 clientes activos en 5 países de Latinoamérica" },
+      { "year": "2024", "event": "Lanzamiento de la Suite Empresarial Completa J4" }
+    ]
+  },
+  "values": {
+    "title": "Nuestros valores",
+    "innovation": {
+      "title": "Innovación constante",
+      "description": "Adoptamos las últimas tecnologías para ofrecer siempre soluciones de vanguardia."
+    },
+    "commitment": {
+      "title": "Compromiso total",
+      "description": "Nos involucramos profundamente en cada proyecto hasta ver los resultados que prometemos."
+    },
+    "results": {
+      "title": "Resultados medibles",
+      "description": "Cada solución que entregamos está diseñada para generar impacto cuantificable en tu negocio."
+    }
+  }
+}

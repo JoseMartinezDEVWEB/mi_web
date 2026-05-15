@@ -1,0 +1,259 @@
+/* Sección hero principal con animaciones de texto y estadísticas */
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { Helmet } from 'react-helmet-async'
+import ButtonPrimary from '../ui/ButtonPrimary.jsx'
+import ButtonSecondary from '../ui/ButtonSecondary.jsx'
+import StatCard from '../ui/StatCard.jsx'
+import { fadeInUp, staggerContainer, viewportProps } from '../../hooks/useScrollAnimation.js'
+
+/* Hook de efecto máquina de escribir */
+function useTypewriter(strings = [], speed = 50) {
+  const [displayText, setDisplayText] = useState('')
+  const [stringIndex, setStringIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(0)
+  const [deleting, setDeleting] = useState(false)
+
+  useEffect(() => {
+    if (!strings.length) return
+    const current = strings[stringIndex]
+
+    const timeout = setTimeout(() => {
+      if (!deleting) {
+        if (charIndex < current.length) {
+          setDisplayText(current.slice(0, charIndex + 1))
+          setCharIndex((c) => c + 1)
+        } else {
+          /* Pausa al completar la cadena antes de borrar */
+          setTimeout(() => setDeleting(true), 2000)
+        }
+      } else {
+        if (charIndex > 0) {
+          setDisplayText(current.slice(0, charIndex - 1))
+          setCharIndex((c) => c - 1)
+        } else {
+          setDeleting(false)
+          setStringIndex((i) => (i + 1) % strings.length)
+        }
+      }
+    }, deleting ? speed / 2 : speed)
+
+    return () => clearTimeout(timeout)
+  }, [charIndex, deleting, stringIndex, strings, speed])
+
+  return displayText
+}
+
+/* Estadísticas del hero */
+const STATS = [
+  { value: 50, suffix: '+', key: 'hero:stats.projects' },
+  { value: 30, suffix: '+', key: 'hero:stats.clients' },
+  { value: 5, suffix: '', key: 'hero:stats.experience' },
+  { value: 98, suffix: '%', key: 'hero:stats.satisfaction' },
+]
+
+export default function Hero() {
+  const { t } = useTranslation(['hero', 'common'])
+  const typewriterStrings = t('hero:typewriter', { returnObjects: true }) ?? []
+  const typewriterText = useTypewriter(
+    Array.isArray(typewriterStrings) ? typewriterStrings : [typewriterStrings]
+  )
+
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  /* Headline letra por letra con stagger */
+  const headline1 = t('hero:headline1')
+  const headline2 = t('hero:headline2')
+
+  return (
+    <section
+      id="hero"
+      className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-16"
+    >
+      <Helmet>
+        <title>J4TechnologyIsNow - Transformación Digital</title>
+      </Helmet>
+
+      <motion.div
+        className="max-w-4xl mx-auto"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Etiqueta superior decorativa */}
+        <motion.div variants={fadeInUp} className="mb-6">
+          <span
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] px-4 py-2 rounded-full"
+            style={{
+              border: '1px solid rgba(0, 212, 255, 0.3)',
+              color: '#00D4FF',
+              background: 'rgba(0, 212, 255, 0.05)',
+            }}
+          >
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#00D4FF' }} />
+            República Dominicana 🇩🇴
+          </span>
+        </motion.div>
+
+        {/* Headline principal con animación letra por letra */}
+        <motion.h1
+          variants={fadeInUp}
+          className="text-5xl md:text-7xl font-bold leading-tight mb-4"
+          style={{ color: '#F1F5F9' }}
+        >
+          {headline1}
+          <br />
+          {/* Segunda línea en dorado con glow */}
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #D4AF37, #F5C842)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              filter: 'drop-shadow(0 0 20px rgba(212, 175, 55, 0.4))',
+            }}
+          >
+            {headline2}
+          </span>
+        </motion.h1>
+
+        {/* Subtítulo con efecto máquina de escribir */}
+        <motion.div
+          variants={fadeInUp}
+          className="text-xl md:text-2xl font-medium mb-6 h-8 flex items-center justify-center gap-1"
+          style={{ color: '#00D4FF' }}
+        >
+          <span>{typewriterText}</span>
+          {/* Cursor parpadeante */}
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 0.8, repeat: Infinity }}
+            className="inline-block w-0.5 h-6 ml-0.5"
+            style={{ background: '#00D4FF' }}
+          />
+        </motion.div>
+
+        {/* Descripción de la empresa */}
+        <motion.p
+          variants={fadeInUp}
+          className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
+          style={{ color: '#94A3B8' }}
+        >
+          {t('hero:description')}
+        </motion.p>
+
+        {/* Botones CTA */}
+        <motion.div
+          variants={fadeInUp}
+          className="flex flex-wrap gap-4 justify-center mb-16"
+        >
+          <ButtonPrimary onClick={() => scrollTo('contacto')} className="text-base px-8 py-3.5">
+            {t('common:buttons.startNow')}
+          </ButtonPrimary>
+          <ButtonSecondary onClick={() => scrollTo('servicios')} className="text-base px-8 py-3.5">
+            {t('common:buttons.viewServices')}
+          </ButtonSecondary>
+        </motion.div>
+
+        {/* Tarjeta visual central con logo J4 */}
+        <motion.div
+          variants={fadeInUp}
+          className="relative inline-block mb-16"
+          style={{ perspective: '1000px' }}
+        >
+          <motion.div
+            className="w-40 h-40 rounded-3xl flex items-center justify-center mx-auto"
+            style={{
+              background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(0, 212, 255, 0.1))',
+              border: '1px solid rgba(212, 175, 55, 0.3)',
+              boxShadow: '0 0 60px rgba(212, 175, 55, 0.2), 0 0 120px rgba(0, 212, 255, 0.1)',
+            }}
+            animate={{
+              rotateY: [0, 5, 0, -5, 0],
+              rotateX: [0, 3, 0, -3, 0],
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <span
+              className="text-5xl font-black"
+              style={{
+                background: 'linear-gradient(135deg, #D4AF37, #F5C842)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              J4
+            </span>
+          </motion.div>
+
+          {/* Elementos decorativos orbitando */}
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              className="absolute w-3 h-3 rounded-full"
+              style={{
+                background: i % 2 === 0 ? '#D4AF37' : '#00D4FF',
+                top: `${[20, 70, 40][i]}%`,
+                left: `${[10, 85, 90][i]}%`,
+              }}
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.6, 1, 0.6],
+              }}
+              transition={{
+                duration: 2 + i,
+                repeat: Infinity,
+                delay: i * 0.7,
+              }}
+            />
+          ))}
+        </motion.div>
+
+        {/* Estadísticas en fila */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportProps}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {STATS.map(({ value, suffix, key }) => {
+            const [ns, tKey] = key.split(':')
+            return (
+              <motion.div key={key} variants={fadeInUp}>
+                <StatCard
+                  value={value}
+                  suffix={suffix}
+                  label={t(`${ns}:${tKey}`)}
+                />
+              </motion.div>
+            )
+          })}
+        </motion.div>
+      </motion.div>
+
+      {/* Indicador de scroll hacia abajo */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div
+          className="w-6 h-10 rounded-full border-2 flex items-start justify-center pt-2"
+          style={{ borderColor: 'rgba(255,255,255,0.2)' }}
+        >
+          <motion.div
+            className="w-1 h-2 rounded-full"
+            style={{ background: '#00D4FF' }}
+            animate={{ opacity: [1, 0, 1], y: [0, 4, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
+    </section>
+  )
+}

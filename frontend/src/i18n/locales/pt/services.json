@@ -1,0 +1,69 @@
+{
+  "sectionLabel": "Catálogo de serviços",
+  "title": "Experimente nossos sistemas antes de contratar",
+  "subtitle": "Explore demos ao vivo — sem cadastro nem cartão de crédito",
+  "filters": {
+    "all": "Todos",
+    "management": "Gestão empresarial",
+    "digital": "Presença digital",
+    "ai": "IA & automação"
+  },
+  "services": {
+    "inventory": {
+      "name": "Sistema de inventário",
+      "description": "Gerencie produtos, armazéns e alertas de estoque em tempo real com relatórios automatizados.",
+      "features": ["Controle de estoque em tempo real", "Alertas automáticos de reposição", "Relatórios e análises", "Múltiplos armazéns", "Exportação CSV/Excel", "Painel interativo"]
+    },
+    "billing": {
+      "name": "Faturamento eletrônico",
+      "description": "Sistema de faturamento com NCF, ITBIS automático e conformidade com a DGII da República Dominicana.",
+      "features": ["Geração de NCF", "Cálculo ITBIS 18%", "Multi-clientes", "Assistente em 3 etapas", "Impressão de faturas", "Histórico completo"]
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "Loja online completa com carrinho de compras, pagamentos integrados e painel de administração.",
+      "features": ["Catálogo de produtos", "Carrinho de compras", "Gateway de pagamento", "Painel de admin", "Gestão de pedidos", "SEO otimizado"]
+    },
+    "chatbot": {
+      "name": "Agente IA / Chatbot",
+      "description": "Chatbot inteligente desenvolvido com Claude AI que atende clientes, agenda consultas e qualifica leads 24/7.",
+      "features": ["Respostas em tempo real", "Multilíngue", "Agendamento automático de consultas", "Integração WhatsApp", "Histórico de conversas", "Painel de controle"]
+    },
+    "webdev": {
+      "name": "Desenvolvimento web",
+      "description": "Sites e aplicações web personalizados com design moderno, responsivo e voltados para a conversão.",
+      "features": ["Design responsivo", "SEO on-page", "Otimização de velocidade", "CMS integrado", "Formulários de contato", "Analytics integrado"]
+    },
+    "mobileapp": {
+      "name": "Aplicativo móvel",
+      "description": "Aplicativos móveis nativos e multiplataforma para iOS e Android com experiência de usuário excepcional.",
+      "features": ["iOS e Android", "UI/UX personalizado", "Notificações push", "Modo offline", "Integração de APIs", "Publicação nas lojas"]
+    },
+    "reservations": {
+      "name": "Sistema de reservas",
+      "description": "Plataforma de reservas e agendamentos online com calendário sincronizado e confirmações automáticas.",
+      "features": ["Calendário interativo", "Confirmações automáticas", "Integração de pagamentos", "Painel de gestão", "Lembretes SMS/E-mail", "Multi-usuário"]
+    },
+    "analytics": {
+      "name": "Analytics & BI",
+      "description": "Painel de Business Intelligence com dados em tempo real para tomar melhores decisões de negócios.",
+      "features": ["Painéis interativos", "KPIs em tempo real", "Relatórios automatizados", "Integração multi-fonte", "Exportação de dados", "Alertas inteligentes"]
+    }
+  },
+  "demo": {
+    "browserUrl": "demo.j4technologyisnow.com",
+    "loading": "Carregando demo...",
+    "customSystem": "Precisa de um sistema que não está no catálogo?",
+    "tellUsYourIdea": "Conte-nos sua ideia",
+    "featuresIncluded": "Funcionalidades incluídas"
+  },
+  "estimate": {
+    "title": "Estimativa de preço",
+    "projectType": "Tipo de projeto",
+    "features": "Funcionalidades",
+    "estimatedTime": "Tempo estimado",
+    "estimatedPrice": "Preço estimado",
+    "days": "dias",
+    "getQuote": "Obter orçamento detalhado"
+  }
+}

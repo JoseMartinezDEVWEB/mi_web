@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "cta": "Agenda una Demo"
+  },
+  "footer": {
+    "tagline": "Transformación digital para empresas dominicanas y latinoamericanas",
+    "services": "Servicios",
+    "company": "Empresa",
+    "legal": "Legal",
+    "about": "Nosotros",
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies",
+    "newsletter": "Suscríbete al newsletter",
+    "newsletterPlaceholder": "Tu correo electrónico",
+    "subscribe": "Suscribirme",
+    "copyright": "Todos los derechos reservados",
+    "madeWith": "Hecho con ❤️ en República Dominicana 🇩🇴"
+  },
+  "buttons": {
+    "startNow": "Comenzar Ahora",
+    "viewServices": "Ver Servicios",
+    "learnMore": "Saber más",
+    "contactUs": "Contáctanos",
+    "tryDemo": "Probar Demo",
+    "viewPrices": "Ver precios",
+    "hire": "Contratar",
+    "send": "Enviar",
+    "loading": "Cargando...",
+    "readMore": "Leer más",
+    "viewExample": "Ver ejemplo",
+    "requestQuote": "Solicitar cotización"
+  },
+  "badges": {
+    "demoAvailable": "Demo disponible",
+    "beta": "Beta",
+    "new": "Nuevo",
+    "comingSoon": "Próximamente"
+  },
+  "toast": {
+    "success": "¡Éxito!",
+    "error": "Error",
+    "messageSent": "Mensaje enviado correctamente",
+    "subscribed": "¡Te has suscrito al newsletter!",
+    "copied": "Copiado al portapapeles"
+  }
+}

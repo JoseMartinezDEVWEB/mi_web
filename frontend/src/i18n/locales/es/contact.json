@@ -1,0 +1,33 @@
+{
+  "sectionLabel": "Hablemos",
+  "title": "Contacto",
+  "subtitle": "¿Listo para transformar tu negocio? Estamos aquí para ayudarte.",
+  "address": "Santo Domingo, República Dominicana",
+  "phone": "+1 (809) 555-0100",
+  "email": "contacto@j4technologyisnow.com",
+  "schedule": "Lunes a viernes, 9am a 6pm (AST)",
+  "whatsapp": "Escribir por WhatsApp",
+  "telegram": "Escribir por Telegram",
+  "emailContact": "Enviar correo",
+  "chat": {
+    "title": "Agente J4",
+    "online": "En línea",
+    "placeholder": "Escribe tu mensaje...",
+    "greeting": "¡Hola! Soy el Agente J4 👋 ¿En qué puedo ayudarte hoy? Puedo responder preguntas sobre nuestros servicios, mostrarte demos y agendar una cita con nuestro equipo.",
+    "suggestions": ["Ver servicios disponibles", "Agendar una demo", "Solicitar cotización", "Hablar con el equipo"],
+    "typing": "Escribiendo...",
+    "send": "Enviar",
+    "rateLimitReached": "Has alcanzado el límite de mensajes para esta sesión."
+  },
+  "form": {
+    "name": "Nombre completo",
+    "company": "Empresa",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "service": "Servicio de interés",
+    "message": "Mensaje",
+    "submit": "Enviar mensaje",
+    "success": "¡Mensaje enviado! Te contactaremos pronto.",
+    "error": "Error al enviar. Intenta de nuevo."
+  }
+}

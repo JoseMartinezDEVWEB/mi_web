@@ -1,0 +1,55 @@
+{
+  "sectionLabel": "Our work",
+  "title": "Featured Projects",
+  "subtitle": "Real results for real businesses",
+  "projects": [
+    {
+      "id": "erp-caribbean",
+      "name": "ERP System",
+      "client": "Caribbean Distributor",
+      "description": "Complete enterprise resource planning system with inventory management, sales, purchasing and integrated accounting.",
+      "tags": ["ERP", "React", "Node.js", "PostgreSQL"],
+      "result": "Reduced management time by 70%"
+    },
+    {
+      "id": "delivery-rd",
+      "name": "Delivery RD App",
+      "client": "Local StartUp",
+      "description": "Delivery mobile application with real-time tracking, multiple restaurants and integrated payment system.",
+      "tags": ["React Native", "Node.js", "Socket.io", "Stripe"],
+      "result": "More than 500 daily orders processed"
+    },
+    {
+      "id": "fashion-ecommerce",
+      "name": "Dominican Fashion E-commerce",
+      "client": "Local Boutique",
+      "description": "Complete online store with product catalog, payment gateway, shipping management and administration panel.",
+      "tags": ["Next.js", "Stripe", "PostgreSQL", "AWS"],
+      "result": "300% increase in online sales"
+    },
+    {
+      "id": "analytics-dashboard",
+      "name": "Analytics Dashboard",
+      "client": "Business Group",
+      "description": "Centralized Business Intelligence panel with real-time data from 8 companies in the business group.",
+      "tags": ["React", "Python", "PostgreSQL", "Redis"],
+      "result": "Data from 8 companies in a single panel"
+    },
+    {
+      "id": "bank-chatbot",
+      "name": "AI Chatbot",
+      "client": "Local Bank",
+      "description": "Artificial intelligence agent for customer service with the ability to resolve frequent banking queries.",
+      "tags": ["Claude AI", "Node.js", "React", "Socket.io"],
+      "result": "80% of queries resolved automatically"
+    },
+    {
+      "id": "hotel-reservations",
+      "name": "Reservation System",
+      "client": "Boutique Hotel",
+      "description": "Reservation management platform with interactive calendar, online payments and automatic confirmations.",
+      "tags": ["React", "Node.js", "Stripe", "Twilio"],
+      "result": "Occupancy grew from 65% to 91%"
+    }
+  ]
+}

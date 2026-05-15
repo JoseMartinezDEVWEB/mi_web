@@ -1,0 +1,27 @@
+{
+  "sectionLabel": "Ce que disent nos clients",
+  "title": "Témoignages",
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "María González",
+      "company": "Distribuidora Caribeña S.R.L.",
+      "initials": "MG",
+      "text": "J4TechnologyIsNow a complètement transformé notre opération. Avant, nous perdions des heures sur des processus manuels ; maintenant tout est automatisé et notre équipe peut se concentrer sur ce qui compte vraiment : faire croître l'entreprise."
+    },
+    {
+      "id": 2,
+      "name": "Carlos Rodríguez",
+      "company": "Boutique Fashion RD",
+      "initials": "CR",
+      "text": "L'e-commerce qu'ils ont développé pour nous a dépassé toutes nos attentes. Les ventes en ligne ont augmenté de 300 % au premier trimestre et le panneau d'administration est très intuitif pour notre équipe."
+    },
+    {
+      "id": 3,
+      "name": "Ana Martínez",
+      "company": "Hotel Playa Dorada",
+      "initials": "AM",
+      "text": "Le système de réservation a complètement changé notre activité. Notre taux d'occupation est passé de 65 % à 91 % grâce à la facilité de réserver en ligne et aux confirmations automatiques qui inspirent confiance aux clients."
+    }
+  ]
+}

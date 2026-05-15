@@ -1,0 +1,31 @@
+{
+  "sectionLabel": "Connaissances et tendances",
+  "title": "Blog",
+  "subtitle": "Articles sur la technologie et la transformation numérique",
+  "articles": [
+    {
+      "id": "digitalize-2025",
+      "title": "5 raisons de digitaliser votre entreprise en 2025",
+      "category": "Transformation numérique",
+      "readTime": "5 min de lecture",
+      "excerpt": "La digitalisation n'est plus optionnelle. Découvrez les 5 principales raisons pour lesquelles votre entreprise doit faire le saut numérique cette année.",
+      "date": "2025-01-15"
+    },
+    {
+      "id": "react-vs-nextjs",
+      "title": "React vs Next.js : lequel choisir pour votre projet ?",
+      "category": "Développement web",
+      "readTime": "7 min de lecture",
+      "excerpt": "Nous comparons les deux technologies avec des cas d'utilisation réels pour vous aider à prendre la meilleure décision pour votre prochain projet web.",
+      "date": "2025-01-08"
+    },
+    {
+      "id": "ai-ecommerce-rd",
+      "title": "Comment l'IA révolutionne le e-commerce en RD",
+      "category": "Intelligence artificielle",
+      "readTime": "6 min de lecture",
+      "excerpt": "L'intelligence artificielle change les règles du jeu pour le commerce électronique dominicain. Découvrez les tendances les plus importantes.",
+      "date": "2024-12-28"
+    }
+  ]
+}

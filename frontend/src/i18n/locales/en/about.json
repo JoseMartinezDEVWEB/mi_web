@@ -1,0 +1,32 @@
+{
+  "sectionLabel": "About us",
+  "title": "Democratizing technology in Latin America",
+  "paragraph1": "We are a Dominican company founded in 2019 with the mission of making world-class technology solutions accessible to businesses of all sizes in the Dominican Republic and Latin America.",
+  "paragraph2": "Our team of developers, designers and digital strategists works with passion to create systems that not only work perfectly, but generate measurable results and transform the way our clients do business.",
+  "timeline": {
+    "title": "Our history",
+    "events": [
+      { "year": "2019", "event": "Foundation of J4TechnologyIsNow in Santo Domingo" },
+      { "year": "2020", "event": "First enterprise ERP system implemented" },
+      { "year": "2021", "event": "Expansion into mobile application development" },
+      { "year": "2022", "event": "Integration of Artificial Intelligence into our systems" },
+      { "year": "2023", "event": "More than 30 active clients in 5 Latin American countries" },
+      { "year": "2024", "event": "Launch of the Complete J4 Enterprise Suite" }
+    ]
+  },
+  "values": {
+    "title": "Our values",
+    "innovation": {
+      "title": "Constant innovation",
+      "description": "We adopt the latest technologies to always offer cutting-edge solutions."
+    },
+    "commitment": {
+      "title": "Total commitment",
+      "description": "We are deeply involved in every project until we see the results we promise."
+    },
+    "results": {
+      "title": "Measurable results",
+      "description": "Every solution we deliver is designed to generate quantifiable impact on your business."
+    }
+  }
+}

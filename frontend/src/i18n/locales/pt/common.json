@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Início",
+    "services": "Serviços",
+    "about": "Sobre nós",
+    "portfolio": "Portfólio",
+    "blog": "Blog",
+    "contact": "Contato",
+    "cta": "Agendar uma Demo"
+  },
+  "footer": {
+    "tagline": "Transformação digital para empresas dominicanas e latino-americanas",
+    "services": "Serviços",
+    "company": "Empresa",
+    "legal": "Legal",
+    "about": "Sobre nós",
+    "portfolio": "Portfólio",
+    "blog": "Blog",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "cookies": "Cookies",
+    "newsletter": "Assine nossa newsletter",
+    "newsletterPlaceholder": "Seu endereço de e-mail",
+    "subscribe": "Assinar",
+    "copyright": "Todos os direitos reservados",
+    "madeWith": "Feito com ❤️ na República Dominicana 🇩🇴"
+  },
+  "buttons": {
+    "startNow": "Começar agora",
+    "viewServices": "Ver serviços",
+    "learnMore": "Saiba mais",
+    "contactUs": "Fale conosco",
+    "tryDemo": "Experimentar demo",
+    "viewPrices": "Ver preços",
+    "hire": "Contratar",
+    "send": "Enviar",
+    "loading": "Carregando...",
+    "readMore": "Leia mais",
+    "viewExample": "Ver exemplo",
+    "requestQuote": "Solicitar orçamento"
+  },
+  "badges": {
+    "demoAvailable": "Demo disponível",
+    "beta": "Beta",
+    "new": "Novo",
+    "comingSoon": "Em breve"
+  },
+  "toast": {
+    "success": "Sucesso!",
+    "error": "Erro",
+    "messageSent": "Mensagem enviada com sucesso",
+    "subscribed": "Você se inscreveu na newsletter!",
+    "copied": "Copiado para a área de transferência"
+  }
+}

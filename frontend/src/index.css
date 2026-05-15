@@ -1,0 +1,125 @@
+/* Estilos globales de J4TechnologyIsNow */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS globales */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-card: #111827;
+  --gold: #D4AF37;
+  --gold-bright: #F5C842;
+  --cyan-tech: #00D4FF;
+  --cyan-deep: #0099CC;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  /* Variables del gradiente que sigue al cursor */
+  --cursor-x: 50%;
+  --cursor-y: 50%;
+}
+
+/* Estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyan-deep);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-tech);
+}
+
+/* Ocultar cursor nativo en desktop */
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Selección de texto */
+::selection {
+  background-color: rgba(0, 212, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Animaciones de cuadrícula del fondo */
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.07; }
+  50% { opacity: 0.12; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Clases utilitarias personalizadas */
+@layer utilities {
+  /* Texto con gradiente dorado */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D4AF37, #F5C842);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Texto con gradiente cian */
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00D4FF, #0099CC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Borde con glow cian */
+  .border-cyan-glow {
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Efecto shimmer para botones */
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
