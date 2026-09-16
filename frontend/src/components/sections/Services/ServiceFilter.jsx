@@ -17,7 +17,7 @@ export default function ServiceFilter({ activeFilter, onFilterChange }) {
   const { isLight } = useTheme()
 
   return (
-    <div className="flex flex-wrap gap-2 justify-center">
+    <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar w-full max-w-full px-2 py-1">
       {FILTERS.map(({ key, label }) => {
         const isActive = activeFilter === key
 
@@ -30,7 +30,7 @@ export default function ServiceFilter({ activeFilter, onFilterChange }) {
           <motion.button
             key={key}
             onClick={() => onFilterChange(key)}
-            className="relative px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200"
+            className="relative px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap flex-shrink-0"
             style={{
               color: isActive ? activeColor : inactiveColor,
               border: isActive ? 'none' : inactiveBorder,

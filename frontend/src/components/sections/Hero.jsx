@@ -83,22 +83,22 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-24 pb-16"
+      className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-3 sm:px-4 pt-20 sm:pt-24 pb-12 sm:pb-16 max-w-full overflow-hidden"
     >
       <Helmet>
         <title>J4TechnologyIsNow - Transformación Digital</title>
       </Helmet>
 
       <motion.div
-        className="max-w-4xl mx-auto"
+        className="max-w-4xl mx-auto w-full"
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
       >
         {/* Etiqueta superior decorativa */}
-        <motion.div variants={fadeInUp} className="mb-6">
+        <motion.div variants={fadeInUp} className="mb-5 sm:mb-6">
           <span
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full"
+            className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full"
             style={{
               border: badgeBorder,
               color: badgeColor,
@@ -113,7 +113,7 @@ export default function Hero() {
         {/* Headline principal con animación letra por letra */}
         <motion.h1
           variants={fadeInUp}
-          className="text-5xl md:text-7xl font-black leading-tight mb-4"
+          className="text-3xl sm:text-5xl md:text-7xl font-black leading-[1.15] sm:leading-tight mb-4 tracking-tight px-1"
           style={{ color: headlineColor }}
         >
           {headline1}
@@ -136,7 +136,7 @@ export default function Hero() {
         {/* Subtítulo con efecto máquina de escribir */}
         <motion.div
           variants={fadeInUp}
-          className="text-xl md:text-2xl font-bold mb-6 h-8 flex items-center justify-center gap-1"
+          className="text-base sm:text-xl md:text-2xl font-bold mb-5 sm:mb-6 min-h-[32px] flex items-center justify-center gap-1 px-2"
           style={{ color: typewriterColor }}
         >
           <span>{typewriterText}</span>
@@ -144,7 +144,7 @@ export default function Hero() {
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 0.8, repeat: Infinity }}
-            className="inline-block w-0.5 h-6 ml-0.5"
+            className="inline-block w-0.5 h-5 sm:h-6 ml-0.5"
             style={{ background: typewriterColor }}
           />
         </motion.div>
@@ -152,21 +152,21 @@ export default function Hero() {
         {/* Descripción de la empresa */}
         <motion.p
           variants={fadeInUp}
-          className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto font-medium"
+          className="text-sm sm:text-lg leading-relaxed mb-8 sm:mb-10 max-w-2xl mx-auto font-medium px-2"
           style={{ color: descColor }}
         >
           {t('hero:description')}
         </motion.p>
 
-        {/* Botones CTA */}
+        {/* Botones CTA adaptados a móvil */}
         <motion.div
           variants={fadeInUp}
-          className="flex flex-wrap gap-4 justify-center mb-16"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full max-w-xs sm:max-w-none mx-auto mb-12 sm:mb-16"
         >
-          <ButtonPrimary onClick={() => scrollTo('contacto')} className="text-base px-8 py-3.5">
+          <ButtonPrimary onClick={() => scrollTo('contacto')} className="w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 justify-center">
             {t('common:buttons.startNow')}
           </ButtonPrimary>
-          <ButtonSecondary onClick={() => scrollTo('servicios')} className="text-base px-8 py-3.5">
+          <ButtonSecondary onClick={() => scrollTo('servicios')} className="w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 justify-center">
             {t('common:buttons.viewServices')}
           </ButtonSecondary>
         </motion.div>
@@ -233,7 +233,7 @@ export default function Hero() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportProps}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 w-full px-1 sm:px-0"
         >
           {STATS.map(({ value, suffix, key }) => {
             const [ns, tKey] = key.split(':')

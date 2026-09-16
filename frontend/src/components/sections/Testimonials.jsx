@@ -27,9 +27,21 @@ export default function Testimonials() {
   /* Dirección de la transición para determinar la animación de entrada/salida */
   const [direction, setDirection] = useState(1)
 
+  /* Número dinámico de cards visibles: 1 en móvil, 3 en desktop */
+  const [cardsPerSlide, setCardsPerSlide] = useState(3)
+
+  useEffect(() => {
+    const updateCards = () => {
+      setCardsPerSlide(window.innerWidth < 768 ? 1 : 3)
+    }
+    updateCards()
+    window.addEventListener('resize', updateCards)
+    return () => window.removeEventListener('resize', updateCards)
+  }, [])
+
   /* Calcular total de slides según items disponibles */
   const totalSlides = Array.isArray(testimonials)
-    ? Math.ceil(testimonials.length / CARDS_PER_SLIDE)
+    ? Math.ceil(testimonials.length / cardsPerSlide)
     : 0
 
   /* Ir al slide siguiente */
@@ -60,8 +72,8 @@ export default function Testimonials() {
   /* Obtener los testimonios del slide activo */
   const currentTestimonials = Array.isArray(testimonials)
     ? testimonials.slice(
-        activeIndex * CARDS_PER_SLIDE,
-        activeIndex * CARDS_PER_SLIDE + CARDS_PER_SLIDE
+        activeIndex * cardsPerSlide,
+        activeIndex * cardsPerSlide + cardsPerSlide
       )
     : []
 
@@ -129,7 +141,7 @@ export default function Testimonials() {
                   <TestimonialCard
                     key={`${activeIndex}-${index}`}
                     testimonial={testimonial}
-                    index={activeIndex * CARDS_PER_SLIDE + index}
+                    index={activeIndex * cardsPerSlide + index}
                   />
                 ))}
               </motion.div>

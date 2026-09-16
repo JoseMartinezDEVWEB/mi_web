@@ -136,11 +136,10 @@ export default function ChatWidget({ preloadedMessage = null }) {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden flex flex-col"
+      className="rounded-2xl overflow-hidden flex flex-col w-full max-w-full h-[460px] sm:h-[520px]"
       style={{
         background: '#111827',
         border: '1px solid rgba(255, 255, 255, 0.08)',
-        height: 520,
       }}
     >
       {/* Encabezado del chat */}

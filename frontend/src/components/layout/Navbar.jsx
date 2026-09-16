@@ -83,15 +83,15 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo J4 */}
           <Link
             to="/"
-            className="flex items-center gap-2 font-bold text-xl select-none"
+            className="flex items-center gap-1.5 sm:gap-2 font-bold text-base sm:text-xl select-none min-w-0"
             onClick={() => scrollToSection('#hero')}
           >
-            <span style={{ color: isLight ? '#B45309' : '#D4AF37' }}>J4</span>
-            <span style={{ color: isLight ? '#0F172A' : '#F1F5F9' }}>TechnologyIsNow</span>
+            <span className="flex-shrink-0" style={{ color: isLight ? '#B45309' : '#D4AF37' }}>J4</span>
+            <span className="truncate" style={{ color: isLight ? '#0F172A' : '#F1F5F9' }}>TechnologyIsNow</span>
           </Link>
 
           {/* Links de navegación — solo en desktop */}
@@ -168,7 +168,7 @@ export default function Navbar() {
 
             {/* Panel del drawer desde la derecha */}
             <motion.div
-              className="fixed top-0 right-0 bottom-0 z-[200] w-72 flex flex-col p-6 shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 z-[200] w-[85vw] max-w-xs flex flex-col p-5 sm:p-6 shadow-2xl"
               style={{
                 background: isLight ? 'rgba(255, 255, 255, 0.98)' : 'rgba(10, 10, 15, 0.97)',
                 backdropFilter: 'blur(16px)',

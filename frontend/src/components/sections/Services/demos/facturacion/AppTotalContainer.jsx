@@ -66,7 +66,7 @@ export default function AppTotalContainer() {
   }
 
   return (
-    <div className="w-full bg-gray-100 rounded-2xl overflow-hidden font-sans text-gray-800 shadow-2xl border border-gray-300/80 select-none flex flex-col min-h-[680px]">
+    <div className="w-full max-w-full bg-gray-100 rounded-2xl overflow-hidden font-sans text-gray-800 shadow-2xl border border-gray-300/80 select-none flex flex-col min-h-[520px] sm:min-h-[680px]">
       {/* ── HEADER PRINCIPAL (Diseño idéntico a Dashboard.jsx de app-total) ── */}
       <header className="bg-white border-b border-gray-200 px-3 sm:px-6 py-2.5 flex items-center justify-between z-20 shadow-xs">
         <div className="flex items-center gap-3">
