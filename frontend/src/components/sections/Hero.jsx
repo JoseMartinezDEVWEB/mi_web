@@ -171,47 +171,48 @@ export default function Hero() {
           </ButtonSecondary>
         </motion.div>
 
-        {/* Tarjeta visual central con logo J4 */}
+        {/* Logo central 3D interactivo con tilt */}
         <motion.div
           variants={fadeInUp}
           className="relative inline-block mb-16"
           style={{ perspective: '1000px' }}
         >
           <motion.div
-            className="w-40 h-40 rounded-3xl flex items-center justify-center mx-auto"
+            className="w-40 h-40 sm:w-44 sm:h-44 rounded-3xl flex items-center justify-center mx-auto overflow-hidden p-1"
             style={{
-              background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(0, 212, 255, 0.1))',
-              border: '1px solid rgba(212, 175, 55, 0.3)',
-              boxShadow: '0 0 60px rgba(212, 175, 55, 0.2), 0 0 120px rgba(0, 212, 255, 0.1)',
+              background: isLight
+                ? 'linear-gradient(135deg, rgba(180, 83, 9, 0.15), rgba(2, 132, 199, 0.1))'
+                : 'linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(0, 212, 255, 0.15))',
+              border: isLight
+                ? '2px solid rgba(180, 83, 9, 0.3)'
+                : '2px solid rgba(212, 175, 55, 0.4)',
+              boxShadow: isLight
+                ? '0 10px 30px rgba(180, 83, 9, 0.15), 0 0 20px rgba(2, 132, 199, 0.1)'
+                : '0 0 50px rgba(212, 175, 55, 0.35), 0 0 90px rgba(0, 212, 255, 0.2)',
             }}
             animate={{
-              rotateY: [0, 5, 0, -5, 0],
-              rotateX: [0, 3, 0, -3, 0],
+              rotateY: [0, 6, 0, -6, 0],
+              rotateX: [0, 4, 0, -4, 0],
+              y: [0, -6, 0],
             }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <span
-              className="text-5xl font-black"
-              style={{
-                background: 'linear-gradient(135deg, #D4AF37, #F5C842)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              J4
-            </span>
+            <img
+              src="/j4-gold-logo.png"
+              alt="J4 Technology"
+              className="w-full h-full object-cover rounded-2xl select-none pointer-events-none"
+            />
           </motion.div>
 
           {/* Elementos decorativos orbitando */}
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              className="absolute w-3 h-3 rounded-full"
+              className="absolute w-3 h-3 rounded-full pointer-events-none"
               style={{
-                background: i % 2 === 0 ? '#D4AF37' : '#00D4FF',
-                top: `${[20, 70, 40][i]}%`,
-                left: `${[10, 85, 90][i]}%`,
+                background: i % 2 === 0 ? (isLight ? '#B45309' : '#D4AF37') : (isLight ? '#0284C7' : '#00D4FF'),
+                top: `${[15, 75, 35][i]}%`,
+                left: `${[5, 90, 95][i]}%`,
               }}
               animate={{
                 scale: [1, 1.5, 1],
