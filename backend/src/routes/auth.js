@@ -1,7 +1,7 @@
 /* Rutas de autenticación del panel admin */
 import { Router } from 'express'
 import { PrismaClient } from '@prisma/client'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 const router = Router()

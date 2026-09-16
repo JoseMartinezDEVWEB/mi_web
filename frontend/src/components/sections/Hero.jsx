@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async'
 import ButtonPrimary from '../ui/ButtonPrimary.jsx'
 import ButtonSecondary from '../ui/ButtonSecondary.jsx'
 import StatCard from '../ui/StatCard.jsx'
+import { useTheme } from '../../context/ThemeContext.jsx'
 import { fadeInUp, staggerContainer, viewportProps } from '../../hooks/useScrollAnimation.js'
 
 /* Hook de efecto máquina de escribir */
@@ -55,6 +56,7 @@ const STATS = [
 
 export default function Hero() {
   const { t } = useTranslation(['hero', 'common'])
+  const { isLight } = useTheme()
   const typewriterStrings = t('hero:typewriter', { returnObjects: true }) ?? []
   const typewriterText = useTypewriter(
     Array.isArray(typewriterStrings) ? typewriterStrings : [typewriterStrings]
@@ -67,6 +69,16 @@ export default function Hero() {
   /* Headline letra por letra con stagger */
   const headline1 = t('hero:headline1')
   const headline2 = t('hero:headline2')
+
+  const badgeColor = isLight ? '#0284C7' : '#00D4FF'
+  const badgeBg = isLight ? 'rgba(2, 132, 199, 0.08)' : 'rgba(0, 212, 255, 0.05)'
+  const badgeBorder = isLight ? '1px solid rgba(2, 132, 199, 0.3)' : '1px solid rgba(0, 212, 255, 0.3)'
+  const headlineColor = isLight ? '#0F172A' : '#F1F5F9'
+  const goldGradient = isLight
+    ? 'linear-gradient(135deg, #B45309, #D97706)'
+    : 'linear-gradient(135deg, #D4AF37, #F5C842)'
+  const typewriterColor = isLight ? '#0284C7' : '#00D4FF'
+  const descColor = isLight ? '#334155' : '#94A3B8'
 
   return (
     <section
@@ -86,14 +98,14 @@ export default function Hero() {
         {/* Etiqueta superior decorativa */}
         <motion.div variants={fadeInUp} className="mb-6">
           <span
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] px-4 py-2 rounded-full"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full"
             style={{
-              border: '1px solid rgba(0, 212, 255, 0.3)',
-              color: '#00D4FF',
-              background: 'rgba(0, 212, 255, 0.05)',
+              border: badgeBorder,
+              color: badgeColor,
+              background: badgeBg,
             }}
           >
-            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#00D4FF' }} />
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: badgeColor }} />
             República Dominicana 🇩🇴
           </span>
         </motion.div>
@@ -101,19 +113,20 @@ export default function Hero() {
         {/* Headline principal con animación letra por letra */}
         <motion.h1
           variants={fadeInUp}
-          className="text-5xl md:text-7xl font-bold leading-tight mb-4"
-          style={{ color: '#F1F5F9' }}
+          className="text-5xl md:text-7xl font-black leading-tight mb-4"
+          style={{ color: headlineColor }}
         >
           {headline1}
           <br />
-          {/* Segunda línea en dorado con glow */}
+          {/* Segunda línea en dorado con gradiente */}
           <span
+            className="inline-block"
             style={{
-              background: 'linear-gradient(135deg, #D4AF37, #F5C842)',
+              backgroundImage: goldGradient,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              filter: 'drop-shadow(0 0 20px rgba(212, 175, 55, 0.4))',
+              color: 'transparent',
             }}
           >
             {headline2}
@@ -123,8 +136,8 @@ export default function Hero() {
         {/* Subtítulo con efecto máquina de escribir */}
         <motion.div
           variants={fadeInUp}
-          className="text-xl md:text-2xl font-medium mb-6 h-8 flex items-center justify-center gap-1"
-          style={{ color: '#00D4FF' }}
+          className="text-xl md:text-2xl font-bold mb-6 h-8 flex items-center justify-center gap-1"
+          style={{ color: typewriterColor }}
         >
           <span>{typewriterText}</span>
           {/* Cursor parpadeante */}
@@ -132,15 +145,15 @@ export default function Hero() {
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 0.8, repeat: Infinity }}
             className="inline-block w-0.5 h-6 ml-0.5"
-            style={{ background: '#00D4FF' }}
+            style={{ background: typewriterColor }}
           />
         </motion.div>
 
         {/* Descripción de la empresa */}
         <motion.p
           variants={fadeInUp}
-          className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
-          style={{ color: '#94A3B8' }}
+          className="text-lg leading-relaxed mb-10 max-w-2xl mx-auto font-medium"
+          style={{ color: descColor }}
         >
           {t('hero:description')}
         </motion.p>

@@ -6,8 +6,11 @@ export default function SplashScreen() {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     /* Ocultar la pantalla después de 2.5 segundos */
-    const timer = setTimeout(() => setVisible(false), 2500)
+    const timer = setTimeout(() => {
+      setVisible(false)
+    }, 2500)
     return () => clearTimeout(timer)
   }, [])
 

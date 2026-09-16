@@ -44,12 +44,14 @@ export default function ChatWidget({ preloadedMessage = null }) {
   const [sessionId] = useState(generateSessionId)
   const [rateLimited, setRateLimited] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(true)
-  const messagesEndRef = useRef(null)
+  const messagesContainerRef = useRef(null)
   const inputRef = useRef(null)
 
-  /* Scroll automático al último mensaje */
+  /* Scroll automático al último mensaje dentro del contenedor propio */
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight
+    }
   }, [messages, typing])
 
   /* Enviar saludo automático al montar el componente */
@@ -176,7 +178,7 @@ export default function ChatWidget({ preloadedMessage = null }) {
       </div>
 
       {/* Área de mensajes con scroll */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-3">
         <AnimatePresence initial={false}>
           {messages.map((msg, i) => (
             <motion.div
@@ -257,9 +259,6 @@ export default function ChatWidget({ preloadedMessage = null }) {
             ))}
           </div>
         )}
-
-        {/* Ancla para scroll automático */}
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input de mensaje */}

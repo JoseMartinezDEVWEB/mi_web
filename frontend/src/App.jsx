@@ -1,7 +1,7 @@
 /* Componente raíz de la aplicación - define rutas y proveedores globales */
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { Toaster } from 'sonner'
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 
 /* Componentes de UI global */
 import CustomCursor from './components/ui/CustomCursor.jsx'
@@ -24,6 +24,14 @@ const PageLoader = () => (
   </div>
 )
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -35,6 +43,9 @@ export default function App() {
 
       {/* Barra de progreso de lectura en la parte superior */}
       <ScrollProgress />
+
+      {/* Scroll al tope en cada cambio de ruta */}
+      <ScrollToTop />
 
       {/* Pantalla de carga inicial con animación del logo J4 */}
       <SplashScreen />

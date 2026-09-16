@@ -27,7 +27,6 @@ export default function ScrollProgress() {
         scaleX: smoothProgress,
         background: 'linear-gradient(90deg, #D4AF37, #F5C842)',
         transformOrigin: 'left',
-        scaleX: progress / 100,
       }}
       initial={{ scaleX: 0 }}
     />

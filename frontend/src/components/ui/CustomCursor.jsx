@@ -1,11 +1,13 @@
 /* Cursor circular personalizado para dispositivos de escritorio */
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from '../../context/ThemeContext'
 
 export default function CustomCursor() {
   const cursorRef = useRef(null)
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const { isLight } = useTheme()
 
   useEffect(() => {
     /* Solo activar en dispositivos con puntero fino (desktop/laptop) */
@@ -42,25 +44,27 @@ export default function CustomCursor() {
     return null
   }
 
+  const cursorColor = isLight ? '#0284C7' : '#00D4FF'
+  const hoverBg = isLight ? 'rgba(2, 132, 199, 0.15)' : 'rgba(0, 212, 255, 0.2)'
+
   return (
     <motion.div
       ref={cursorRef}
       className="fixed pointer-events-none z-[9999]"
       style={{ transform: 'translate(-50%, -50%)' }}
       animate={{
-        width: isHovering ? 40 : 12,
-        height: isHovering ? 40 : 12,
+        width: isHovering ? 36 : 12,
+        height: isHovering ? 36 : 12,
         opacity: isVisible ? 1 : 0,
-        /* Mezcla de colores al hovear elementos interactivos */
-        mixBlendMode: isHovering ? 'difference' : 'normal',
+        mixBlendMode: isLight ? 'normal' : (isHovering ? 'difference' : 'normal'),
       }}
       transition={{ duration: 0.15, ease: 'easeOut' }}
     >
       <div
-        className="w-full h-full rounded-full border-2"
+        className="w-full h-full rounded-full border-2 transition-colors duration-200"
         style={{
-          borderColor: '#00D4FF',
-          background: isHovering ? 'rgba(0, 212, 255, 0.2)' : 'transparent',
+          borderColor: cursorColor,
+          background: isHovering ? hoverBg : 'transparent',
         }}
       />
     </motion.div>

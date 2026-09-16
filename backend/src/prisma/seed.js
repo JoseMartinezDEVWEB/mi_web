@@ -1,6 +1,6 @@
 /* Script de seed para poblar la base de datos con los 8 servicios del catálogo */
 import { PrismaClient } from '@prisma/client'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 

@@ -100,12 +100,14 @@ export default function AgentDemo() {
   /* Mensaje de error mostrado al usuario (rate limit, etc.) */
   const [error, setError] = useState(null)
 
-  /* Referencia al final de la lista de mensajes para el scroll automático */
-  const finListaRef = useRef(null)
+  /* Referencia al contenedor de mensajes para el scroll automático interno */
+  const historialRef = useRef(null)
 
-  /* Desplaza el scroll hasta el último mensaje cada vez que cambia la lista */
+  /* Desplaza el scroll interno hasta el último mensaje */
   useEffect(() => {
-    finListaRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (historialRef.current) {
+      historialRef.current.scrollTop = historialRef.current.scrollHeight
+    }
   }, [mensajes, cargando])
 
   /* Envía el mensaje al backend y agrega la respuesta al historial */
@@ -177,6 +179,7 @@ export default function AgentDemo() {
 
       {/* ── Historial de mensajes con scroll ── */}
       <div
+        ref={historialRef}
         className="flex-1 overflow-y-auto px-4 py-3 space-y-3"
         style={{ background: 'rgba(255,255,255,0.02)' }}
       >
@@ -206,9 +209,6 @@ export default function AgentDemo() {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Elemento ancla para el scroll automático al final */}
-        <div ref={finListaRef} />
       </div>
 
       {/* ── Chips de sugerencias rápidas ── */}

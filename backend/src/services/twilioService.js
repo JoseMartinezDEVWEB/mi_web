@@ -1,8 +1,10 @@
 /* Servicio de notificaciones WhatsApp via Twilio */
+/* Se importa Twilio al nivel del módulo para evitar await dinámico */
+import twilio from 'twilio'
 
 let twilioClient = null
 
-/* Inicializar cliente Twilio solo si las variables de entorno están configuradas */
+/* Inicializar el cliente Twilio con las credenciales del .env */
 const getClient = () => {
   if (twilioClient) return twilioClient
 
@@ -10,8 +12,7 @@ const getClient = () => {
   if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN) return null
 
   try {
-    const twilio = await import('twilio')
-    twilioClient = twilio.default(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    twilioClient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     return twilioClient
   } catch {
     return null
@@ -23,7 +24,7 @@ export async function sendWhatsAppNotification(appointment) {
   const from = process.env.TWILIO_WHATSAPP_FROM
   const to = process.env.OWNER_WHATSAPP
 
-  /* Fallback a consola si WhatsApp no está configurado */
+  /* Fallback a consola si WhatsApp no está configurado en el .env */
   if (!from || !to || !process.env.TWILIO_ACCOUNT_SID) {
     console.log('📱 [WhatsApp Fallback] Nueva cita agendada:')
     console.log(JSON.stringify(appointment, null, 2))

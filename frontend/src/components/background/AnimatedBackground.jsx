@@ -1,6 +1,7 @@
-/* Fondo animado global con múltiples capas visuales */
+/* Fondo animado global con soporte dinámico para Tema Claro y Oscuro */
 import { useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
+import { useTheme } from '../../context/ThemeContext'
 
 /* Datos de hexágonos flotantes decorativos */
 const HEXAGONS = [
@@ -12,7 +13,7 @@ const HEXAGONS = [
 ]
 
 /* Hexágono SVG individual con animación de rotación y flotado */
-function HexagonShape({ x, y, size, duration, delay }) {
+function HexagonShape({ x, y, size, duration, delay, isLight }) {
   const points = [
     [size / 2, 0],
     [size, size * 0.25],
@@ -21,6 +22,9 @@ function HexagonShape({ x, y, size, duration, delay }) {
     [0, size * 0.75],
     [0, size * 0.25],
   ].map(([px, py]) => `${px},${py}`).join(' ')
+
+  const strokeColor = isLight ? '#0284C7' : '#00D4FF'
+  const strokeOpacity = isLight ? '0.3' : '0.15'
 
   return (
     <motion.div
@@ -39,9 +43,9 @@ function HexagonShape({ x, y, size, duration, delay }) {
         <polygon
           points={points}
           fill="none"
-          stroke="#00D4FF"
-          strokeWidth="1"
-          opacity="0.15"
+          stroke={strokeColor}
+          strokeWidth={isLight ? '1.5' : '1'}
+          opacity={strokeOpacity}
         />
       </svg>
     </motion.div>
@@ -49,7 +53,11 @@ function HexagonShape({ x, y, size, duration, delay }) {
 }
 
 /* Paths SVG de circuito animados con stroke-dashoffset */
-function CircuitLines() {
+function CircuitLines({ isLight }) {
+  const strokePrimary = isLight ? '#0284C7' : '#00D4FF'
+  const strokeGold = isLight ? '#D97706' : '#D4AF37'
+  const opacity = isLight ? '0.35' : '0.2'
+
   return (
     <svg
       className="absolute inset-0 w-full h-full pointer-events-none"
@@ -59,9 +67,9 @@ function CircuitLines() {
       <motion.path
         d="M 0 100 L 80 100 L 80 50 L 200 50"
         fill="none"
-        stroke="#00D4FF"
-        strokeWidth="1"
-        opacity="0.2"
+        stroke={strokePrimary}
+        strokeWidth={isLight ? '1.5' : '1'}
+        opacity={opacity}
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
         transition={{ duration: 3, repeat: Infinity, repeatType: 'loop', ease: 'linear' }}
@@ -70,9 +78,9 @@ function CircuitLines() {
       <motion.path
         d="M 100% 80% L calc(100% - 80px) 80% L calc(100% - 80px) 90% L calc(100% - 200px) 90%"
         fill="none"
-        stroke="#D4AF37"
-        strokeWidth="1"
-        opacity="0.15"
+        stroke={strokeGold}
+        strokeWidth={isLight ? '1.5' : '1'}
+        opacity={opacity}
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
         transition={{ duration: 4, repeat: Infinity, repeatType: 'loop', ease: 'linear', delay: 1.5 }}
@@ -81,32 +89,41 @@ function CircuitLines() {
   )
 }
 
-/* Esferas de luz difusa (blur orbs) en posiciones fijas */
-function BlurOrbs() {
-  const orbs = [
-    { x: '-10%', y: '10%', color: '#0099CC', size: 400 },
+/* Esferas de luz difusa (blur orbs) con paleta reactiva al tema */
+function BlurOrbs({ isLight }) {
+  const orbsDark = [
+    { x: '-10%', y: '10%', color: '#0099CC', size: 400, opacity: 0.08 },
     { x: '70%', y: '-5%', color: '#D4AF37', size: 300, opacity: 0.08 },
-    { x: '85%', y: '60%', color: '#003366', size: 500 },
+    { x: '85%', y: '60%', color: '#003366', size: 500, opacity: 0.08 },
     { x: '-5%', y: '80%', color: '#00D4FF', size: 250, opacity: 0.06 },
   ]
+
+  const orbsLight = [
+    { x: '-5%', y: '5%', color: '#BAE6FD', size: 450, opacity: 0.45 },
+    { x: '65%', y: '-10%', color: '#FEF08A', size: 380, opacity: 0.35 },
+    { x: '80%', y: '55%', color: '#A7F3D0', size: 520, opacity: 0.4 },
+    { x: '-8%', y: '75%', color: '#E0E7FF', size: 320, opacity: 0.35 },
+  ]
+
+  const orbs = isLight ? orbsLight : orbsDark
 
   return (
     <>
       {orbs.map((orb, i) => (
         <motion.div
-          key={i}
-          className="absolute rounded-full blur-3xl pointer-events-none"
+          key={`${isLight ? 'light' : 'dark'}-${i}`}
+          className="absolute rounded-full blur-3xl pointer-events-none transition-colors duration-500"
           style={{
             left: orb.x,
             top: orb.y,
             width: orb.size,
             height: orb.size,
             background: orb.color,
-            opacity: orb.opacity ?? 0.08,
+            opacity: orb.opacity,
           }}
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [(orb.opacity ?? 0.08), (orb.opacity ?? 0.08) * 1.5, (orb.opacity ?? 0.08)],
+            opacity: [orb.opacity, orb.opacity * 1.4, orb.opacity],
           }}
           transition={{
             duration: 4 + i * 1.5,
@@ -121,24 +138,34 @@ function BlurOrbs() {
 }
 
 export default function AnimatedBackground() {
+  const { isLight } = useTheme()
   const canvasRef = useRef(null)
   const animFrameRef = useRef(null)
   const particlesRef = useRef([])
 
-  /* Inicializar partículas flotantes */
+  /* Inicializar partículas flotantes con colores acordes al tema */
   const initParticles = useCallback((canvas) => {
     const count = 60
-    particlesRef.current = Array.from({ length: count }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      size: 2 + Math.random() * 2,
-      /* Colores alternando entre cian y dorado */
-      color: Math.random() > 0.5 ? '#00D4FF' : '#D4AF37',
-      opacity: 0.3 + Math.random() * 0.4,
-    }))
-  }, [])
+    particlesRef.current = Array.from({ length: count }, () => {
+      let color
+      if (isLight) {
+        const rand = Math.random()
+        color = rand > 0.6 ? '#0284C7' : rand > 0.3 ? '#D97706' : '#0D9488'
+      } else {
+        color = Math.random() > 0.5 ? '#00D4FF' : '#D4AF37'
+      }
+
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: 2 + Math.random() * 2.5,
+        color,
+        opacity: isLight ? 0.35 + Math.random() * 0.35 : 0.3 + Math.random() * 0.4,
+      }
+    })
+  }, [isLight])
 
   /* Bucle de animación de partículas con canvas */
   const animateParticles = useCallback(() => {
@@ -168,7 +195,7 @@ export default function AnimatedBackground() {
     animFrameRef.current = requestAnimationFrame(animateParticles)
   }, [])
 
-  /* Configurar canvas al montar el componente */
+  /* Configurar canvas al montar el componente o cambiar de tema */
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -195,20 +222,27 @@ export default function AnimatedBackground() {
     document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`)
   }, [])
 
+  const bgBase = isLight
+    ? 'linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 50%, #F1F5F9 100%)'
+    : '#0a0a0f'
+
+  const gridLineColor = isLight ? 'rgba(2, 132, 199, 0.08)' : 'rgba(0, 212, 255, 0.07)'
+  const cursorGlowColor = isLight ? 'rgba(2, 132, 199, 0.08)' : 'rgba(0, 212, 255, 0.05)'
+
   return (
     /* Contenedor fijo que cubre toda la pantalla en z-index 0 */
     <div
-      className="fixed inset-0 z-0 overflow-hidden"
+      className="fixed inset-0 z-0 overflow-hidden transition-colors duration-500"
       onMouseMove={handleMouseMove}
-      style={{ background: '#0a0a0f' }}
+      style={{ background: bgBase }}
     >
-      {/* CAPA 1: Cuadrícula con pulso lento */}
+      {/* CAPA 1: Cuadrícula tecnológica con pulso suave */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0, 212, 255, 0.07) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 212, 255, 0.07) 1px, transparent 1px)
+            linear-gradient(${gridLineColor} 1px, transparent 1px),
+            linear-gradient(90deg, ${gridLineColor} 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
           animation: 'gridPulse 4s ease-in-out infinite',
@@ -225,21 +259,21 @@ export default function AnimatedBackground() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `radial-gradient(600px circle at var(--cursor-x) var(--cursor-y), rgba(0, 212, 255, 0.05), transparent 60%)`,
+          background: `radial-gradient(600px circle at var(--cursor-x) var(--cursor-y), ${cursorGlowColor}, transparent 60%)`,
           transition: 'background 0.1s ease',
         }}
       />
 
       {/* CAPA 4: Líneas de circuito SVG animadas */}
-      <CircuitLines />
+      <CircuitLines isLight={isLight} />
 
       {/* CAPA 5: Hexágonos flotantes decorativos */}
       {HEXAGONS.map((hex, i) => (
-        <HexagonShape key={i} {...hex} />
+        <HexagonShape key={i} {...hex} isLight={isLight} />
       ))}
 
-      {/* CAPA 6: Esferas de luz difusa */}
-      <BlurOrbs />
+      {/* CAPA 6: Esferas de luz difusa acordes al tema */}
+      <BlurOrbs isLight={isLight} />
     </div>
   )
 }
