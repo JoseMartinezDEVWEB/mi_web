@@ -2,7 +2,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { Instagram, Linkedin, Github, Twitter, Send } from 'lucide-react'
+import { Instagram, Facebook, Send } from 'lucide-react'
+import TikTokIcon from '../ui/TikTokIcon.jsx'
 import { toast } from 'sonner'
 import api from '../../services/api.js'
 
@@ -22,10 +23,9 @@ const LEGAL_LINKS = [
   { label: 'Cookies', href: '#' },
 ]
 const SOCIAL_LINKS = [
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Twitter, href: '#', label: 'Twitter/X' },
+  { icon: Instagram, href: 'https://instagram.com/J4technologyisnow', label: 'Instagram' },
+  { icon: Facebook, href: 'https://facebook.com/J4technologyisnow', label: 'Facebook' },
+  { icon: TikTokIcon, href: 'https://tiktok.com/@J4technologyisnow', label: 'TikTok' },
 ]
 
 export default function Footer() {

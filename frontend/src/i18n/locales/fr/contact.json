@@ -3,8 +3,8 @@
   "title": "Contact",
   "subtitle": "Prêt à transformer votre entreprise ? Nous sommes là pour vous aider.",
   "address": "Saint-Domingue, République Dominicaine",
-  "phone": "+1 (809) 555-0100",
-  "email": "contacto@j4technologyisnow.com",
+  "phone": "809-613-3196",
+  "email": "j4.technologyisnow@gmail.com",
   "schedule": "Du lundi au vendredi, de 9h à 18h (AST)",
   "whatsapp": "Écrire sur WhatsApp",
   "telegram": "Écrire sur Telegram",
@@ -13,8 +13,8 @@
     "title": "Agent J4",
     "online": "En ligne",
     "placeholder": "Écrivez votre message...",
-    "greeting": "Bonjour ! Je suis l'Agent J4 👋 Comment puis-je vous aider aujourd'hui ? Je peux répondre à vos questions sur nos services, vous montrer des démos et planifier un rendez-vous avec notre équipe.",
-    "suggestions": ["Voir les services disponibles", "Planifier une démo", "Demander un devis", "Parler à l'équipe"],
+    "greeting": "Bonjour ! Je suis l'Agent J4 👋 Comment puis-je vous aider aujourd'hui ? Contactez-nous également au 809-613-3196.",
+    "suggestions": ["Quels services proposez-vous ?", "Combien coûte un site ?", "WhatsApp", "Planifier une démo"],
     "typing": "En train d'écrire...",
     "send": "Envoyer",
     "rateLimitReached": "Vous avez atteint la limite de messages pour cette session."
@@ -24,10 +24,10 @@
     "company": "Entreprise",
     "email": "Adresse e-mail",
     "phone": "Téléphone",
-    "service": "Service d'intérêt",
+    "service": "Service qui vous intéresse",
     "message": "Message",
     "submit": "Envoyer le message",
     "success": "Message envoyé ! Nous vous contacterons bientôt.",
-    "error": "Erreur lors de l'envoi. Veuillez réessayer."
+    "error": "Erreur d'envoi. Veuillez réessayer."
   }
 }
