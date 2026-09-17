@@ -266,8 +266,8 @@ export default function RestauranteAppDemo() {
       <div
         className={`relative transition-all duration-300 ${
           modoExpandido
-            ? 'w-full max-w-2xl rounded-3xl overflow-hidden border-2 border-slate-300 dark:border-slate-700 shadow-2xl bg-white dark:bg-slate-900'
-            : 'w-full max-w-[390px] h-[780px] rounded-[48px] overflow-hidden border-[8px] border-slate-800 dark:border-slate-700 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] bg-white dark:bg-slate-950 flex flex-col'
+            ? 'w-full max-w-2xl rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-slate-300 dark:border-slate-700 shadow-2xl bg-white dark:bg-slate-900'
+            : 'w-full max-w-full sm:max-w-[390px] h-[720px] sm:h-[780px] rounded-2xl sm:rounded-[48px] overflow-hidden border-4 sm:border-[8px] border-slate-800 dark:border-slate-700 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] bg-white dark:bg-slate-950 flex flex-col'
         }`}
       >
         {/* Dynamic Island / Notch del teléfono */}

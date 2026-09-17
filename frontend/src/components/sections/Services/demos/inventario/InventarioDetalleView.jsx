@@ -616,16 +616,104 @@ export default function InventarioDetalleView({
             </span>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-sm">
+          {/* ── Vista Móvil (< sm): Tarjetas de Productos Contados ── */}
+          <div className="block sm:hidden p-3 space-y-3">
+            {productosContados.length === 0 ? (
+              <div className="px-6 py-10 text-center text-slate-400">
+                <Barcode className="w-10 h-10 mx-auto mb-2 text-slate-300 dark:text-slate-600" />
+                <p className="font-medium text-slate-600 dark:text-slate-400 text-xs">No hay productos en este conteo aún</p>
+                <p className="text-[10px] text-slate-400">Utilice el buscador superior para agregar productos.</p>
+              </div>
+            ) : (
+              productosContados.map((item, idx) => (
+                <div
+                  key={item.id || idx}
+                  className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-2 text-xs"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <h4 className="font-bold text-slate-900 dark:text-slate-100 text-xs truncate">
+                        {item.nombreProducto}
+                      </h4>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="font-mono text-[10px] text-slate-500 bg-white dark:bg-slate-900 px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-800">
+                          {item.skuProducto}
+                        </span>
+                        <span className="text-[10px] text-slate-400">{item.unidadProducto}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => {
+                          setEditingItemId(item.id)
+                          setEditCantidad(String(item.cantidadContada))
+                        }}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30"
+                        title="Editar cantidad"
+                      >
+                        <Edit2 className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => handleRemoveProduct(item.id)}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/30"
+                        title="Eliminar del conteo"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1 border-t border-slate-200/60 dark:border-slate-700/60">
+                    <div>
+                      <span className="text-[9px] text-slate-400 block uppercase">Cantidad Contada</span>
+                      {editingItemId === item.id ? (
+                        <div className="flex items-center gap-1 mt-0.5">
+                          <input
+                            type="number"
+                            step="0.01"
+                            value={editCantidad}
+                            onChange={(e) => setEditCantidad(e.target.value)}
+                            className="w-16 px-1.5 py-0.5 text-xs rounded border border-blue-500 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-bold"
+                            autoFocus
+                          />
+                          <button
+                            onClick={() => handleSaveEditCantidad(item.id)}
+                            className="p-1 text-emerald-600 hover:bg-emerald-50 rounded"
+                          >
+                            <Save className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      ) : (
+                        <span className="font-bold text-slate-800 dark:text-slate-200 text-xs">
+                          {item.cantidadContada.toLocaleString()} {item.unidadProducto}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="text-right">
+                      <span className="text-[9px] text-slate-400 block uppercase">Total RD$</span>
+                      <span className="font-black text-blue-600 dark:text-blue-400 font-mono text-xs">
+                        RD$ {item.valorTotal.toLocaleString('es-DO', { minimumFractionDigits: 2 })}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* ── Vista Desktop / Tablet (>= sm) ── */}
+          <div className="hidden sm:block overflow-x-auto">
+            <table className="w-full text-left border-collapse text-sm min-w-[650px]">
               <thead className="bg-slate-100/60 dark:bg-slate-800/40 text-xs uppercase font-semibold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
                 <tr>
-                  <th className="px-5 py-3">Producto / Descripción</th>
-                  <th className="px-4 py-3">Código de Barras</th>
-                  <th className="px-4 py-3 text-right">Cantidad Contada</th>
-                  <th className="px-4 py-3 text-right">Costo Unitario</th>
-                  <th className="px-5 py-3 text-right">Total RD$</th>
-                  <th className="px-4 py-3 text-center">Acciones</th>
+                  <th className="px-5 py-3 whitespace-nowrap">Producto / Descripción</th>
+                  <th className="px-4 py-3 whitespace-nowrap">Código de Barras</th>
+                  <th className="px-4 py-3 text-right whitespace-nowrap">Cantidad Contada</th>
+                  <th className="px-4 py-3 text-right whitespace-nowrap">Costo Unitario</th>
+                  <th className="px-5 py-3 text-right whitespace-nowrap">Total RD$</th>
+                  <th className="px-4 py-3 text-center whitespace-nowrap">Acciones</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
@@ -643,7 +731,7 @@ export default function InventarioDetalleView({
                       key={item.id || idx}
                       className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors"
                     >
-                      <td className="px-5 py-3.5">
+                      <td className="px-5 py-3.5 whitespace-nowrap">
                         <div className="font-semibold text-slate-900 dark:text-slate-100">
                           {item.nombreProducto}
                         </div>
@@ -651,10 +739,10 @@ export default function InventarioDetalleView({
                           {item.unidadProducto}
                         </div>
                       </td>
-                      <td className="px-4 py-3.5 font-mono text-xs text-slate-500 dark:text-slate-400">
+                      <td className="px-4 py-3.5 font-mono text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">
                         {item.skuProducto}
                       </td>
-                      <td className="px-4 py-3.5 text-right font-bold text-slate-800 dark:text-slate-200">
+                      <td className="px-4 py-3.5 text-right font-bold text-slate-800 dark:text-slate-200 whitespace-nowrap">
                         {editingItemId === item.id ? (
                           <div className="flex items-center justify-end gap-1">
                             <input
@@ -676,13 +764,13 @@ export default function InventarioDetalleView({
                           <span>{item.cantidadContada.toLocaleString()}</span>
                         )}
                       </td>
-                      <td className="px-4 py-3.5 text-right text-slate-600 dark:text-slate-300 font-mono">
+                      <td className="px-4 py-3.5 text-right text-slate-600 dark:text-slate-300 font-mono whitespace-nowrap">
                         RD$ {item.costoProducto.toLocaleString('es-DO', { minimumFractionDigits: 2 })}
                       </td>
-                      <td className="px-5 py-3.5 text-right font-black text-blue-600 dark:text-blue-400 font-mono">
+                      <td className="px-5 py-3.5 text-right font-black text-blue-600 dark:text-blue-400 font-mono whitespace-nowrap">
                         RD$ {item.valorTotal.toLocaleString('es-DO', { minimumFractionDigits: 2 })}
                       </td>
-                      <td className="px-4 py-3.5 text-center">
+                      <td className="px-4 py-3.5 text-center whitespace-nowrap">
                         <div className="flex items-center justify-center gap-1.5">
                           <button
                             onClick={() => {

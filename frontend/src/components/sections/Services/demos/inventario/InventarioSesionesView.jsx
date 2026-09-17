@@ -140,18 +140,115 @@ export default function InventarioSesionesView({
         </button>
       </div>
 
-      {/* ── Tabla de Sesiones ── */}
+      {/* ── Tabla / Listado de Sesiones ── */}
       <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-sm">
+        {/* Vista Móvil (< sm): Tarjetas de Sesiones */}
+        <div className="block sm:hidden p-3 space-y-3">
+          {sesionesFiltradas.length === 0 ? (
+            <div className="px-6 py-12 text-center text-slate-400">
+              <FileSpreadsheet className="w-10 h-10 mx-auto mb-2 text-slate-300 dark:text-slate-600" />
+              <p className="font-semibold text-slate-600 dark:text-slate-300 text-xs">No hay sesiones registradas</p>
+              <p className="text-[10px] text-slate-400">Inicie una nueva sesión de inventario para comenzar el conteo.</p>
+            </div>
+          ) : (
+            sesionesFiltradas.map((s) => {
+              const enProgreso = s.estado === 'en_progreso'
+              return (
+                <div
+                  key={s.id}
+                  className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-2.5 text-xs"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono font-bold text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 px-2 py-0.5 rounded border border-slate-200 dark:border-slate-800 text-[11px]">
+                      {s.numeroSesion}
+                    </span>
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase ${
+                        enProgreso
+                          ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800'
+                          : 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
+                      }`}
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full ${enProgreso ? 'bg-amber-500 animate-pulse' : 'bg-emerald-500'}`} />
+                      {enProgreso ? 'En Progreso' : 'Completada'}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold text-slate-900 dark:text-slate-100 text-xs">
+                      {s.clienteNegocio?.nombre}
+                    </h4>
+                    <div className="flex items-center gap-2 text-[10px] text-slate-400 mt-0.5">
+                      <span>{s.clienteNegocio?.rnc ? `RNC: ${s.clienteNegocio.rnc}` : 'Sin RNC'}</span>
+                      <span>•</span>
+                      <span>{new Date(s.fecha).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 bg-white dark:bg-slate-900 p-2 rounded-lg border border-slate-100 dark:border-slate-800">
+                    <div>
+                      <span className="text-[9px] text-slate-400 block uppercase">Items Contados</span>
+                      <span className="font-semibold text-slate-700 dark:text-slate-300 text-xs">
+                        {s.totales?.totalProductosContados || 0} unds
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[9px] text-slate-400 block uppercase">Valor Total</span>
+                      <span className="font-black text-blue-600 dark:text-blue-400 font-mono text-xs">
+                        RD$ {(s.totales?.valorTotalInventario || 0).toLocaleString('es-DO', { maximumFractionDigits: 0 })}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    <div className="flex items-center gap-1">
+                      {enProgreso && (
+                        <button
+                          onClick={() => onFinalizarSesion(s.id)}
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors"
+                          title="Finalizar sesión"
+                        >
+                          <CheckCircle className="w-4 h-4" />
+                        </button>
+                      )}
+                      <button
+                        onClick={() => onEliminarSesion(s.id)}
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/30 transition-colors"
+                        title="Eliminar sesión"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    <button
+                      onClick={() => onAbrirSesion(s)}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-sm ${
+                        enProgreso
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-blue-500/20'
+                          : 'bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200'
+                      }`}
+                    >
+                      <Play className="w-3 h-3 fill-current" />
+                      {enProgreso ? 'Conteo en Vivo' : 'Ver Conteo'}
+                    </button>
+                  </div>
+                </div>
+              )
+            })
+          )}
+        </div>
+
+        {/* Vista Desktop / Tablet (>= sm) */}
+        <div className="hidden sm:block overflow-x-auto">
+          <table className="w-full text-left border-collapse text-sm min-w-[700px]">
             <thead className="bg-slate-100/70 dark:bg-slate-800/50 text-xs uppercase font-semibold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
               <tr>
-                <th className="px-5 py-3.5"># Sesión & Fecha</th>
-                <th className="px-4 py-3.5">Cliente Auditado</th>
-                <th className="px-4 py-3.5 text-right">Items Contados</th>
-                <th className="px-5 py-3.5 text-right">Valor Total RD$</th>
-                <th className="px-4 py-3.5 text-center">Estado</th>
-                <th className="px-5 py-3.5 text-right">Acción</th>
+                <th className="px-5 py-3.5 whitespace-nowrap"># Sesión & Fecha</th>
+                <th className="px-4 py-3.5 whitespace-nowrap">Cliente Auditado</th>
+                <th className="px-4 py-3.5 text-right whitespace-nowrap">Items Contados</th>
+                <th className="px-5 py-3.5 text-right whitespace-nowrap">Valor Total RD$</th>
+                <th className="px-4 py-3.5 text-center whitespace-nowrap">Estado</th>
+                <th className="px-5 py-3.5 text-right whitespace-nowrap">Acción</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
@@ -171,7 +268,7 @@ export default function InventarioSesionesView({
                       key={s.id}
                       className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors"
                     >
-                      <td className="px-5 py-4">
+                      <td className="px-5 py-4 whitespace-nowrap">
                         <div className="font-mono font-bold text-slate-900 dark:text-slate-100">
                           {s.numeroSesion}
                         </div>
@@ -186,7 +283,7 @@ export default function InventarioSesionesView({
                         )}
                       </td>
 
-                      <td className="px-4 py-4">
+                      <td className="px-4 py-4 whitespace-nowrap">
                         <div className="font-semibold text-slate-900 dark:text-slate-100 text-sm">
                           {s.clienteNegocio?.nombre}
                         </div>
@@ -195,15 +292,15 @@ export default function InventarioSesionesView({
                         </div>
                       </td>
 
-                      <td className="px-4 py-4 text-right font-medium text-slate-700 dark:text-slate-300">
+                      <td className="px-4 py-4 text-right font-medium text-slate-700 dark:text-slate-300 whitespace-nowrap">
                         {s.totales?.totalProductosContados || 0} unidades
                       </td>
 
-                      <td className="px-5 py-4 text-right font-black text-blue-600 dark:text-blue-400 font-mono">
+                      <td className="px-5 py-4 text-right font-black text-blue-600 dark:text-blue-400 font-mono whitespace-nowrap">
                         RD$ {(s.totales?.valorTotalInventario || 0).toLocaleString('es-DO', { minimumFractionDigits: 2 })}
                       </td>
 
-                      <td className="px-4 py-4 text-center">
+                      <td className="px-4 py-4 text-center whitespace-nowrap">
                         <span
                           className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                             enProgreso
@@ -220,7 +317,7 @@ export default function InventarioSesionesView({
                         </span>
                       </td>
 
-                      <td className="px-5 py-4 text-right">
+                      <td className="px-5 py-4 text-right whitespace-nowrap">
                         <div className="flex items-center justify-end gap-2">
                           <button
                             onClick={() => onAbrirSesion(s)}

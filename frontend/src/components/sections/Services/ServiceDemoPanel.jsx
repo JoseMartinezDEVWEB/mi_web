@@ -131,7 +131,7 @@ export default function ServiceDemoPanel({ serviceId, onContact }) {
       </div>
 
       {/* Área de contenido de la demo */}
-      <div className={serviceId === 'billing' ? 'p-2 sm:p-4 min-h-[400px]' : 'p-6 min-h-[400px]'}>
+      <div className="p-2 sm:p-4 md:p-6 min-h-[400px]">
         <AnimatePresence mode="wait">
           {loading ? (
             /* Estado de carga */

@@ -84,21 +84,84 @@ export default function FacturasView({ facturas, onSelectFactura, onNavigate }) 
         </div>
       </div>
 
-      {/* ── Tabla de Facturas ── */}
+      {/* ── Tabla / Listado de Facturas ── */}
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left">
+        {/* Vista Móvil (< sm): Tarjetas claras */}
+        <div className="block sm:hidden p-3 space-y-3">
+          {facturasFiltradas.length === 0 ? (
+            <div className="py-8 text-center text-gray-400 text-xs">
+              No hay comprobantes fiscales que coincidan con la búsqueda
+            </div>
+          ) : (
+            facturasFiltradas.map((f) => (
+              <div
+                key={f.id}
+                className="p-3.5 bg-gray-50/90 rounded-xl border border-gray-200 space-y-2 text-xs"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-gray-900 bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[11px]">
+                    {f.id}
+                  </span>
+                  <span className="font-mono font-bold text-blue-700 bg-white px-2 py-0.5 rounded border border-blue-200 text-xs">
+                    {f.ncf}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="min-w-0 pr-2">
+                    <span className="font-bold text-gray-900 block truncate">{f.cliente.nombre}</span>
+                    <span className="text-[10px] text-gray-500 font-mono">{f.cliente.rncCedula}</span>
+                  </div>
+                  <span className="uppercase text-[10px] font-bold px-2 py-0.5 rounded bg-gray-200 text-gray-700 flex-shrink-0">
+                    {f.pago.metodo}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-[11px] bg-white p-2 rounded-lg border border-gray-100 font-mono">
+                  <div>
+                    <span className="text-gray-400 block text-[9px] uppercase font-sans">Subtotal</span>
+                    <span className="text-gray-700">{formatearDOP(f.resumen.subtotal)}</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-gray-400 block text-[9px] uppercase font-sans">ITBIS 18%</span>
+                    <span className="text-amber-600 font-semibold">{formatearDOP(f.resumen.itbis)}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-1">
+                  <div>
+                    <span className="text-[10px] text-gray-400 block">Total DOP:</span>
+                    <span className="font-black text-sm text-emerald-700 font-mono">
+                      {formatearDOP(f.resumen.total)}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => onSelectFactura(f)}
+                    className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold transition-all inline-flex items-center gap-1.5 shadow-xs"
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    Ticket
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Vista Desktop / Tablet (>= sm) */}
+        <div className="hidden sm:block overflow-x-auto">
+          <table className="w-full text-xs text-left min-w-[760px]">
             <thead className="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold border-b border-gray-200">
               <tr>
-                <th className="py-3 px-4">No. Factura</th>
-                <th className="py-3 px-4">NCF Fiscal</th>
-                <th className="py-3 px-4">Cliente / RNC</th>
-                <th className="py-3 px-4">Fecha y Hora</th>
-                <th className="py-3 px-4">Método</th>
-                <th className="py-3 px-4 text-right">Subtotal</th>
-                <th className="py-3 px-4 text-right">ITBIS 18%</th>
-                <th className="py-3 px-4 text-right">Total Factura</th>
-                <th className="py-3 px-4 text-center">Acciones</th>
+                <th className="py-3 px-4 whitespace-nowrap">No. Factura</th>
+                <th className="py-3 px-4 whitespace-nowrap">NCF Fiscal</th>
+                <th className="py-3 px-4 whitespace-nowrap">Cliente / RNC</th>
+                <th className="py-3 px-4 whitespace-nowrap">Fecha y Hora</th>
+                <th className="py-3 px-4 whitespace-nowrap">Método</th>
+                <th className="py-3 px-4 text-right whitespace-nowrap">Subtotal</th>
+                <th className="py-3 px-4 text-right whitespace-nowrap">ITBIS 18%</th>
+                <th className="py-3 px-4 text-right whitespace-nowrap">Total Factura</th>
+                <th className="py-3 px-4 text-center whitespace-nowrap">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -111,34 +174,34 @@ export default function FacturasView({ facturas, onSelectFactura, onNavigate }) 
               ) : (
                 facturasFiltradas.map((f) => (
                   <tr key={f.id} className="hover:bg-blue-50/20 transition-colors">
-                    <td className="py-3 px-4 font-bold text-gray-900">{f.id}</td>
-                    <td className="py-3 px-4 font-mono font-bold text-blue-700">
+                    <td className="py-3 px-4 font-bold text-gray-900 whitespace-nowrap">{f.id}</td>
+                    <td className="py-3 px-4 font-mono font-bold text-blue-700 whitespace-nowrap">
                       <span className="bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
                         {f.ncf}
                       </span>
                     </td>
                     <td className="py-3 px-4">
-                      <div className="font-semibold text-gray-800">{f.cliente.nombre}</div>
+                      <div className="font-semibold text-gray-800 whitespace-nowrap">{f.cliente.nombre}</div>
                       <div className="text-[10px] text-gray-500 font-mono">
                         {f.cliente.rncCedula}
                       </div>
                     </td>
                     <td className="py-3 px-4 text-gray-600 whitespace-nowrap">{f.fecha}</td>
-                    <td className="py-3 px-4">
+                    <td className="py-3 px-4 whitespace-nowrap">
                       <span className="uppercase text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-700">
                         {f.pago.metodo}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-right font-mono text-gray-600">
+                    <td className="py-3 px-4 text-right font-mono text-gray-600 whitespace-nowrap">
                       {formatearDOP(f.resumen.subtotal)}
                     </td>
-                    <td className="py-3 px-4 text-right font-mono text-amber-600 font-medium">
+                    <td className="py-3 px-4 text-right font-mono text-amber-600 font-medium whitespace-nowrap">
                       {formatearDOP(f.resumen.itbis)}
                     </td>
-                    <td className="py-3 px-4 text-right font-mono font-black text-emerald-700">
+                    <td className="py-3 px-4 text-right font-mono font-black text-emerald-700 whitespace-nowrap">
                       {formatearDOP(f.resumen.total)}
                     </td>
-                    <td className="py-3 px-4 text-center">
+                    <td className="py-3 px-4 text-center whitespace-nowrap">
                       <button
                         onClick={() => onSelectFactura(f)}
                         className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-blue-600 text-white text-[11px] font-semibold transition-all inline-flex items-center gap-1 shadow-sm"

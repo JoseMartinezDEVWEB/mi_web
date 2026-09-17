@@ -118,17 +118,93 @@ export default function InventarioClientesView({
         />
       </div>
 
-      {/* ── Tabla de Clientes ── */}
+      {/* ── Tabla / Directorio de Clientes ── */}
       <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-sm">
+        {/* Vista Móvil (< sm): Tarjetas de Clientes */}
+        <div className="block sm:hidden p-3 space-y-3">
+          {clientesFiltrados.length === 0 ? (
+            <div className="px-6 py-12 text-center text-slate-400">
+              <Building2 className="w-10 h-10 mx-auto mb-2 text-slate-300 dark:text-slate-600" />
+              <p className="font-semibold text-slate-600 dark:text-slate-300 text-xs">No se encontraron clientes</p>
+              <p className="text-[10px] text-slate-400">Haga clic en "Nuevo Cliente" para registrar el primero.</p>
+            </div>
+          ) : (
+            clientesFiltrados.map((c) => (
+              <div
+                key={c.id}
+                className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-2.5 text-xs"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h4 className="font-bold text-slate-900 dark:text-slate-100 text-xs">{c.nombre}</h4>
+                    <p className="text-[10px] text-slate-400 font-mono mt-0.5">{c.rnc ? `RNC: ${c.rnc}` : 'Sin RNC'}</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Activo
+                  </span>
+                </div>
+
+                <div className="text-[11px] space-y-1 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 p-2 rounded-lg border border-slate-100 dark:border-slate-800">
+                  {c.telefono && (
+                    <div className="flex items-center gap-1.5">
+                      <Phone className="w-3 h-3 text-slate-400" />
+                      <span>{c.telefono}</span>
+                    </div>
+                  )}
+                  {c.direccion && (
+                    <div className="flex items-center gap-1.5 text-slate-400 truncate">
+                      <MapPin className="w-3 h-3 flex-shrink-0" />
+                      <span className="truncate">{c.direccion}</span>
+                    </div>
+                  )}
+                  <div className="flex items-center justify-between pt-1 text-[10px] text-slate-400 border-t border-slate-100 dark:border-slate-800">
+                    <span>{c.estadisticas?.totalInventarios || 0} inventarios realizados</span>
+                    <span>Último: {c.estadisticas?.ultimoInventario || 'Pendiente'}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-1">
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => abrirModalEditar(c)}
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30"
+                      title="Editar información"
+                    >
+                      <Edit2 className="w-3.5 h-3.5" />
+                    </button>
+                    <button
+                      onClick={() => onEliminarCliente(c.id)}
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/30"
+                      title="Eliminar cliente"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  <button
+                    onClick={() => onIniciarInventarioCliente(c)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm active:scale-95 transition-all"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current" />
+                    Iniciar Conteo
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Vista Desktop / Tablet (>= sm) */}
+        <div className="hidden sm:block overflow-x-auto">
+          <table className="w-full text-left border-collapse text-sm min-w-[700px]">
             <thead className="bg-slate-100/70 dark:bg-slate-800/50 text-xs uppercase font-semibold text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
               <tr>
-                <th className="px-5 py-3.5">Cliente / Razón Social</th>
-                <th className="px-4 py-3.5">Contacto & Ubicación</th>
-                <th className="px-4 py-3.5">Historial Inventarios</th>
-                <th className="px-4 py-3.5 text-center">Estado</th>
-                <th className="px-5 py-3.5 text-right">Acción Principal</th>
+                <th className="px-5 py-3.5 whitespace-nowrap">Cliente / Razón Social</th>
+                <th className="px-4 py-3.5 whitespace-nowrap">Contacto & Ubicación</th>
+                <th className="px-4 py-3.5 whitespace-nowrap">Historial Inventarios</th>
+                <th className="px-4 py-3.5 text-center whitespace-nowrap">Estado</th>
+                <th className="px-5 py-3.5 text-right whitespace-nowrap">Acción Principal</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800/80">
@@ -146,7 +222,7 @@ export default function InventarioClientesView({
                     key={c.id}
                     className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors"
                   >
-                    <td className="px-5 py-4">
+                    <td className="px-5 py-4 whitespace-nowrap">
                       <div className="font-bold text-slate-900 dark:text-slate-100">
                         {c.nombre}
                       </div>
@@ -160,7 +236,7 @@ export default function InventarioClientesView({
                       )}
                     </td>
 
-                    <td className="px-4 py-4 text-xs text-slate-600 dark:text-slate-300">
+                    <td className="px-4 py-4 text-xs text-slate-600 dark:text-slate-300 whitespace-nowrap">
                       <div className="flex items-center gap-1.5 font-medium">
                         <Phone className="w-3.5 h-3.5 text-slate-400" />
                         {c.telefono || 'Sin teléfono'}
@@ -171,7 +247,7 @@ export default function InventarioClientesView({
                       </div>
                     </td>
 
-                    <td className="px-4 py-4 text-xs">
+                    <td className="px-4 py-4 text-xs whitespace-nowrap">
                       <div className="font-semibold text-slate-800 dark:text-slate-200">
                         {c.estadisticas?.totalInventarios || 0} sesiones
                       </div>
@@ -181,14 +257,14 @@ export default function InventarioClientesView({
                       </div>
                     </td>
 
-                    <td className="px-4 py-4 text-center">
+                    <td className="px-4 py-4 text-center whitespace-nowrap">
                       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         Activo
                       </span>
                     </td>
 
-                    <td className="px-5 py-4 text-right">
+                    <td className="px-5 py-4 text-right whitespace-nowrap">
                       <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() => onIniciarInventarioCliente(c)}

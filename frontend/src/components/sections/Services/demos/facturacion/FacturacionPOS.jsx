@@ -566,36 +566,89 @@ export default function FacturacionPOS() {
               </span>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs text-left bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            {/* Vista Móvil (< sm): Tarjetas de Historial */}
+            <div className="block sm:hidden space-y-3">
+              {historialFacturas.map((fac) => (
+                <div
+                  key={fac.id}
+                  className="p-3.5 bg-white rounded-xl border border-gray-200 shadow-sm space-y-2.5 text-xs"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-gray-900 bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[11px]">
+                        {fac.id}
+                      </span>
+                      <span className="font-mono font-bold text-blue-800 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200 text-xs">
+                        {fac.ncf}
+                      </span>
+                    </div>
+                    <span className="text-[11px] text-gray-500">{fac.fecha}</span>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <div className="min-w-0 pr-2">
+                      <span className="font-semibold text-xs text-gray-800 block truncate">
+                        {fac.cliente.nombre}
+                      </span>
+                      <span className="text-[10px] text-gray-500 font-mono">
+                        {fac.cliente.rncCedula}
+                      </span>
+                    </div>
+                    <span className="uppercase text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-700 flex-shrink-0">
+                      {fac.pago.metodo}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+                    <span className="font-black text-sm text-emerald-700 font-mono">
+                      {formatearDOP(fac.resumen.total)}
+                    </span>
+                    <button
+                      onClick={() => {
+                        setFacturaGenerada(fac)
+                        setModalTicketAbierto(true)
+                      }}
+                      className="px-3 py-1.5 bg-slate-900 hover:bg-blue-600 text-white rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-xs"
+                    >
+                      <Printer className="w-3.5 h-3.5" />
+                      Ver Ticket
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Vista Desktop / Tablet (>= sm) */}
+            <div className="hidden sm:block overflow-x-auto">
+              <table className="w-full text-xs text-left bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden min-w-[650px]">
                 <thead className="bg-gray-50 text-gray-600 uppercase text-[10px] font-bold border-b border-gray-200">
                   <tr>
-                    <th className="py-3 px-4">No. Factura</th>
-                    <th className="py-3 px-4">NCF</th>
-                    <th className="py-3 px-4">Cliente</th>
-                    <th className="py-3 px-4">Fecha/Hora</th>
-                    <th className="py-3 px-4">Método</th>
-                    <th className="py-3 px-4 text-right">Total DOP</th>
-                    <th className="py-3 px-4 text-center">Acción</th>
+                    <th className="py-3 px-4 whitespace-nowrap">No. Factura</th>
+                    <th className="py-3 px-4 whitespace-nowrap">NCF</th>
+                    <th className="py-3 px-4 whitespace-nowrap">Cliente</th>
+                    <th className="py-3 px-4 whitespace-nowrap">Fecha/Hora</th>
+                    <th className="py-3 px-4 whitespace-nowrap">Método</th>
+                    <th className="py-3 px-4 text-right whitespace-nowrap">Total DOP</th>
+                    <th className="py-3 px-4 text-center whitespace-nowrap">Acción</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   {historialFacturas.map((fac) => (
                     <tr key={fac.id} className="hover:bg-blue-50/40 transition-colors">
-                      <td className="py-3 px-4 font-bold text-gray-900">{fac.id}</td>
-                      <td className="py-3 px-4 font-mono font-bold text-blue-800">{fac.ncf}</td>
-                      <td className="py-3 px-4">
+                      <td className="py-3 px-4 font-bold text-gray-900 whitespace-nowrap">{fac.id}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-blue-800 whitespace-nowrap">{fac.ncf}</td>
+                      <td className="py-3 px-4 whitespace-nowrap">
                         <div className="font-semibold text-gray-800">{fac.cliente.nombre}</div>
-                        <div className="text-[10px] text-gray-500">{fac.cliente.rncCedula}</div>
+                        <div className="text-[10px] text-gray-500 font-mono">{fac.cliente.rncCedula}</div>
                       </td>
-                      <td className="py-3 px-4 text-gray-600">{fac.fecha}</td>
-                      <td className="py-3 px-4 uppercase font-semibold text-gray-700">
+                      <td className="py-3 px-4 text-gray-600 whitespace-nowrap">{fac.fecha}</td>
+                      <td className="py-3 px-4 uppercase font-semibold text-gray-700 whitespace-nowrap">
                         {fac.pago.metodo}
                       </td>
-                      <td className="py-3 px-4 text-right font-black text-emerald-700">
+                      <td className="py-3 px-4 text-right font-black text-emerald-700 whitespace-nowrap">
                         {formatearDOP(fac.resumen.total)}
                       </td>
-                      <td className="py-3 px-4 text-center">
+                      <td className="py-3 px-4 text-center whitespace-nowrap">
                         <button
                           onClick={() => {
                             setFacturaGenerada(fac)

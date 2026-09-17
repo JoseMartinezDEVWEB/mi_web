@@ -130,19 +130,86 @@ export default function ProductosView({ productos, setProductos }) {
         </div>
       </div>
 
-      {/* ── Tabla de Productos ── */}
+      {/* ── Tabla / Catálogo de Productos ── */}
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left">
+        {/* Vista Móvil (< sm): Tarjetas de Productos */}
+        <div className="block sm:hidden p-3 space-y-3">
+          {productosFiltrados.length === 0 ? (
+            <div className="py-8 text-center text-gray-400 text-xs">
+              No se encontraron productos coincidentes
+            </div>
+          ) : (
+            productosFiltrados.map((prod) => {
+              const stockBajo = prod.stock <= 5 && prod.stock > 0
+              const sinStock = prod.stock <= 0
+
+              return (
+                <div
+                  key={prod.id}
+                  className="p-3.5 bg-gray-50/90 rounded-xl border border-gray-200 space-y-2 text-xs"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-xs">{prod.name}</h4>
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <span className="font-mono text-[10px] text-gray-500 bg-white px-1.5 py-0.5 rounded border border-gray-200">
+                          {prod.code}
+                        </span>
+                        <span className="text-[10px] text-gray-500">{prod.category}</span>
+                      </div>
+                    </div>
+
+                    <span
+                      className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold flex-shrink-0 ${
+                        sinStock
+                          ? 'bg-red-50 text-red-600 border border-red-200'
+                          : stockBajo
+                          ? 'bg-amber-50 text-amber-600 border border-amber-200'
+                          : 'bg-emerald-50 text-emerald-600 border border-emerald-200'
+                      }`}
+                    >
+                      {sinStock ? 'Agotado' : `${prod.stock} unds`}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-2 border-t border-gray-200/70">
+                    <div className="flex items-center gap-3">
+                      <div>
+                        <span className="text-[9px] text-gray-400 block uppercase">Costo</span>
+                        <span className="font-mono text-gray-600 text-xs">{formatearDOP(prod.costPrice)}</span>
+                      </div>
+                      <div>
+                        <span className="text-[9px] text-gray-400 block uppercase">Precio</span>
+                        <span className="font-mono font-black text-gray-900 text-xs">{formatearDOP(prod.price)}</span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleEliminarProducto(prod.id)}
+                      className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                      title="Eliminar producto"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              )
+            })
+          )}
+        </div>
+
+        {/* Vista Desktop / Tablet (>= sm) */}
+        <div className="hidden sm:block overflow-x-auto">
+          <table className="w-full text-xs text-left min-w-[700px]">
             <thead className="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold border-b border-gray-200">
               <tr>
-                <th className="py-3 px-4">Código / Barcode</th>
-                <th className="py-3 px-4">Nombre del Producto</th>
-                <th className="py-3 px-4">Categoría</th>
-                <th className="py-3 px-4 text-right">Costo</th>
-                <th className="py-3 px-4 text-right">Precio Venta</th>
-                <th className="py-3 px-4 text-center">Stock</th>
-                <th className="py-3 px-4 text-center">Acciones</th>
+                <th className="py-3 px-4 whitespace-nowrap">Código / Barcode</th>
+                <th className="py-3 px-4 whitespace-nowrap">Nombre del Producto</th>
+                <th className="py-3 px-4 whitespace-nowrap">Categoría</th>
+                <th className="py-3 px-4 text-right whitespace-nowrap">Costo</th>
+                <th className="py-3 px-4 text-right whitespace-nowrap">Precio Venta</th>
+                <th className="py-3 px-4 text-center whitespace-nowrap">Stock</th>
+                <th className="py-3 px-4 text-center whitespace-nowrap">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -159,25 +226,25 @@ export default function ProductosView({ productos, setProductos }) {
 
                   return (
                     <tr key={prod.id} className="hover:bg-blue-50/20 transition-colors">
-                      <td className="py-3 px-4 font-mono font-semibold text-gray-600">
+                      <td className="py-3 px-4 font-mono font-semibold text-gray-600 whitespace-nowrap">
                         {prod.code}
                       </td>
                       <td className="py-3 px-4">
-                        <div className="font-bold text-gray-900">{prod.name}</div>
+                        <div className="font-bold text-gray-900 whitespace-nowrap">{prod.name}</div>
                         {prod.badge && (
                           <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-200">
                             {prod.badge}
                           </span>
                         )}
                       </td>
-                      <td className="py-3 px-4 text-gray-600">{prod.category}</td>
-                      <td className="py-3 px-4 text-right text-gray-500 font-mono">
+                      <td className="py-3 px-4 text-gray-600 whitespace-nowrap">{prod.category}</td>
+                      <td className="py-3 px-4 text-right text-gray-500 font-mono whitespace-nowrap">
                         {formatearDOP(prod.costPrice)}
                       </td>
-                      <td className="py-3 px-4 text-right font-bold text-gray-900 font-mono">
+                      <td className="py-3 px-4 text-right font-bold text-gray-900 font-mono whitespace-nowrap">
                         {formatearDOP(prod.price)}
                       </td>
-                      <td className="py-3 px-4 text-center">
+                      <td className="py-3 px-4 text-center whitespace-nowrap">
                         <span
                           className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold ${
                             sinStock
@@ -190,7 +257,7 @@ export default function ProductosView({ productos, setProductos }) {
                           {sinStock ? 'Agotado' : `${prod.stock} unds`}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-center">
+                      <td className="py-3 px-4 text-center whitespace-nowrap">
                         <div className="flex items-center justify-center gap-1.5">
                           <button
                             onClick={() => handleEliminarProducto(prod.id)}

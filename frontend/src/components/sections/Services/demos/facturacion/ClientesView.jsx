@@ -104,18 +104,61 @@ export default function ClientesView({ clientes, setClientes }) {
         </div>
       </div>
 
-      {/* ── Tabla de Clientes ── */}
+      {/* ── Tabla / Directorio de Clientes ── */}
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left">
+        {/* Vista Móvil (< sm): Tarjetas de Clientes */}
+        <div className="block sm:hidden p-3 space-y-3">
+          {clientesFiltrados.length === 0 ? (
+            <div className="py-8 text-center text-gray-400 text-xs">
+              No se encontraron clientes
+            </div>
+          ) : (
+            clientesFiltrados.map((c) => (
+              <div
+                key={c.id}
+                className="p-3.5 bg-gray-50/90 rounded-xl border border-gray-200 space-y-2 text-xs"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <h4 className="font-bold text-gray-900 text-xs truncate">{c.nombre}</h4>
+                    {c.email && <p className="text-[11px] text-gray-500 truncate">{c.email}</p>}
+                  </div>
+                  <span className="font-bold text-[10px] px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200 flex-shrink-0">
+                    {c.tipoNCF}
+                  </span>
+                </div>
+
+                <div className="text-[11px] space-y-0.5 text-gray-600 bg-white p-2 rounded-lg border border-gray-100">
+                  <p><span className="text-gray-400 font-sans">RNC/Céd:</span> <span className="font-mono font-semibold text-gray-800">{c.rncCedula}</span></p>
+                  {c.telefono && <p><span className="text-gray-400 font-sans">Teléfono:</span> {c.telefono}</p>}
+                  {c.direccion && <p className="truncate"><span className="text-gray-400 font-sans">Dirección:</span> {c.direccion}</p>}
+                </div>
+
+                <div className="flex items-center justify-end pt-1">
+                  <button
+                    onClick={() => handleEliminarCliente(c.id)}
+                    className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors flex items-center gap-1 text-[11px]"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                    <span>Eliminar</span>
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Vista Desktop / Tablet (>= sm) */}
+        <div className="hidden sm:block overflow-x-auto">
+          <table className="w-full text-xs text-left min-w-[650px]">
             <thead className="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold border-b border-gray-200">
               <tr>
-                <th className="py-3 px-4">Razón Social / Nombre</th>
-                <th className="py-3 px-4">RNC / Cédula</th>
-                <th className="py-3 px-4">NCF Predeterminado</th>
-                <th className="py-3 px-4">Teléfono</th>
-                <th className="py-3 px-4">Dirección</th>
-                <th className="py-3 px-4 text-center">Acciones</th>
+                <th className="py-3 px-4 whitespace-nowrap">Razón Social / Nombre</th>
+                <th className="py-3 px-4 whitespace-nowrap">RNC / Cédula</th>
+                <th className="py-3 px-4 whitespace-nowrap">NCF Predeterminado</th>
+                <th className="py-3 px-4 whitespace-nowrap">Teléfono</th>
+                <th className="py-3 px-4 whitespace-nowrap">Dirección</th>
+                <th className="py-3 px-4 text-center whitespace-nowrap">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -129,20 +172,20 @@ export default function ClientesView({ clientes, setClientes }) {
                 clientesFiltrados.map((c) => (
                   <tr key={c.id} className="hover:bg-blue-50/20 transition-colors">
                     <td className="py-3 px-4">
-                      <div className="font-bold text-gray-900">{c.nombre}</div>
-                      {c.email && <div className="text-[11px] text-gray-500">{c.email}</div>}
+                      <div className="font-bold text-gray-900 whitespace-nowrap">{c.nombre}</div>
+                      {c.email && <div className="text-[11px] text-gray-500 whitespace-nowrap">{c.email}</div>}
                     </td>
-                    <td className="py-3 px-4 font-mono font-semibold text-gray-800">
+                    <td className="py-3 px-4 font-mono font-semibold text-gray-800 whitespace-nowrap">
                       {c.rncCedula}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3 px-4 whitespace-nowrap">
                       <span className="font-bold text-[10px] px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">
                         {c.tipoNCF}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-gray-600">{c.telefono}</td>
+                    <td className="py-3 px-4 text-gray-600 whitespace-nowrap">{c.telefono}</td>
                     <td className="py-3 px-4 text-gray-500 max-w-xs truncate">{c.direccion}</td>
-                    <td className="py-3 px-4 text-center">
+                    <td className="py-3 px-4 text-center whitespace-nowrap">
                       <button
                         onClick={() => handleEliminarCliente(c.id)}
                         className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"

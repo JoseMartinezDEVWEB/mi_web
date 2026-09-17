@@ -31,7 +31,7 @@ export default function DashboardView({
   return (
     <div className="space-y-6">
       {/* ── Tarjetas de Métricas Principales (Diseño app-total) ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 min-[420px]:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
         {/* Total Ventas */}
         <motion.div
           whileHover={{ y: -2 }}
@@ -233,34 +233,84 @@ export default function DashboardView({
           </button>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-xs text-left">
+        {/* ── Vista Móvil: Tarjetas compactas y estéticas (< sm) ── */}
+        <div className="block sm:hidden space-y-3">
+          {facturas.slice(0, 5).map((f) => (
+            <div
+              key={f.id}
+              className="p-3.5 bg-gray-50/90 hover:bg-blue-50/40 rounded-xl border border-gray-200 transition-all space-y-2.5"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold text-[11px]">
+                    {f.id}
+                  </span>
+                  <span className="font-mono font-bold text-xs text-blue-700 bg-white px-1.5 py-0.5 rounded border border-blue-200">
+                    {f.ncf}
+                  </span>
+                </div>
+                <span className="text-[11px] text-gray-500">{f.fecha}</span>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="min-w-0 pr-2">
+                  <span className="font-semibold text-xs text-gray-800 block truncate">
+                    {f.cliente.nombre}
+                  </span>
+                  <span className="text-[10px] text-gray-500 font-mono">
+                    {f.cliente.rncCedula}
+                  </span>
+                </div>
+                <span className="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-gray-200 text-gray-700 whitespace-nowrap flex-shrink-0">
+                  {f.pago.metodo}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between pt-2 border-t border-gray-200/70">
+                <span className="font-black text-sm text-emerald-700 font-mono">
+                  {formatearDOP(f.resumen.total)}
+                </span>
+                <button
+                  onClick={() => onSelectFactura(f)}
+                  className="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-blue-600 text-white text-xs font-semibold transition-all inline-flex items-center gap-1.5 shadow-xs"
+                >
+                  <Printer className="w-3.5 h-3.5" />
+                  Ver Ticket
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Vista Desktop / Tablet: Tabla con scroll horizontal protegido (>= sm) ── */}
+        <div className="hidden sm:block overflow-x-auto">
+          <table className="w-full text-xs text-left min-w-[650px]">
             <thead className="bg-gray-50 text-gray-500 uppercase text-[10px] font-bold border-b border-gray-200">
               <tr>
-                <th className="py-2.5 px-3">No. Factura</th>
-                <th className="py-2.5 px-3">NCF</th>
-                <th className="py-2.5 px-3">Cliente</th>
-                <th className="py-2.5 px-3">Fecha</th>
-                <th className="py-2.5 px-3">Método</th>
-                <th className="py-2.5 px-3 text-right">Total DOP</th>
-                <th className="py-2.5 px-3 text-center">Acción</th>
+                <th className="py-2.5 px-3 whitespace-nowrap">No. Factura</th>
+                <th className="py-2.5 px-3 whitespace-nowrap">NCF</th>
+                <th className="py-2.5 px-3 whitespace-nowrap">Cliente</th>
+                <th className="py-2.5 px-3 whitespace-nowrap">Fecha</th>
+                <th className="py-2.5 px-3 whitespace-nowrap">Método</th>
+                <th className="py-2.5 px-3 text-right whitespace-nowrap">Total DOP</th>
+                <th className="py-2.5 px-3 text-center whitespace-nowrap">Acción</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {facturas.slice(0, 5).map((f) => (
                 <tr key={f.id} className="hover:bg-blue-50/30 transition-colors">
-                  <td className="py-3 px-3 font-bold text-gray-900">{f.id}</td>
-                  <td className="py-3 px-3 font-mono font-bold text-blue-700">{f.ncf}</td>
+                  <td className="py-3 px-3 font-bold text-gray-900 whitespace-nowrap">{f.id}</td>
+                  <td className="py-3 px-3 font-mono font-bold text-blue-700 whitespace-nowrap">{f.ncf}</td>
                   <td className="py-3 px-3">
-                    <span className="font-semibold text-gray-800 block">{f.cliente.nombre}</span>
-                    <span className="text-[10px] text-gray-500">{f.cliente.rncCedula}</span>
+                    <span className="font-semibold text-gray-800 block whitespace-nowrap">{f.cliente.nombre}</span>
+                    <span className="text-[10px] text-gray-500 font-mono">{f.cliente.rncCedula}</span>
                   </td>
-                  <td className="py-3 px-3 text-gray-600">{f.fecha}</td>
-                  <td className="py-3 px-3 font-semibold uppercase text-gray-700">{f.pago.metodo}</td>
-                  <td className="py-3 px-3 text-right font-black text-emerald-700">
+                  <td className="py-3 px-3 text-gray-600 whitespace-nowrap">{f.fecha}</td>
+                  <td className="py-3 px-3 font-semibold uppercase text-gray-700 whitespace-nowrap">{f.pago.metodo}</td>
+                  <td className="py-3 px-3 text-right font-black text-emerald-700 whitespace-nowrap">
                     {formatearDOP(f.resumen.total)}
                   </td>
-                  <td className="py-3 px-3 text-center">
+                  <td className="py-3 px-3 text-center whitespace-nowrap">
                     <button
                       onClick={() => onSelectFactura(f)}
                       className="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-slate-900 hover:text-white text-gray-700 text-[11px] font-semibold transition-all inline-flex items-center gap-1"
