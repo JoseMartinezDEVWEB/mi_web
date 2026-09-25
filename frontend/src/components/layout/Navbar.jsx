@@ -6,7 +6,6 @@ import { Menu, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcherDesktop, LanguageSwitcherMobile } from '../ui/LanguageSwitcher.jsx'
 import ButtonPrimary from '../ui/ButtonPrimary.jsx'
-import ThemeToggle from '../ui/ThemeToggle.jsx'
 import { useTheme } from '../../context/ThemeContext.jsx'
 
 /* Anclas de las secciones para navegación suave */
@@ -126,8 +125,6 @@ export default function Navbar() {
 
           {/* Acciones derechas */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Toggle Tema Claro / Oscuro */}
-            <ThemeToggle />
             <LanguageSwitcherDesktop />
             <ButtonPrimary
               onClick={() => scrollToSection('#contacto')}
@@ -137,13 +134,12 @@ export default function Navbar() {
             </ButtonPrimary>
           </div>
 
-          {/* Botones mobile (Toggle tema + Menú hamburguesa) */}
+          {/* Botones mobile (Menú hamburguesa) */}
           <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
             <button
               onClick={() => setDrawerOpen(true)}
               className="p-2 rounded-lg"
-              style={{ color: isLight ? '#0F172A' : '#F1F5F9' }}
+              style={{ color: '#F1F5F9' }}
               aria-label="Abrir menú"
             >
               <Menu size={24} />
@@ -207,17 +203,10 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              {/* Selector de idioma y tema en mobile */}
-              <div className="space-y-4 pt-4 border-t border-gray-200/40">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold" style={{ color: isLight ? '#0F172A' : '#F1F5F9' }}>
-                    Tema de la web
-                  </span>
-                  <ThemeToggle showLabel={false} />
-                </div>
-
+              {/* Selector de idioma en mobile */}
+              <div className="space-y-4 pt-4 border-t border-white/10">
                 <div>
-                  <p className="text-xs font-medium mb-2 uppercase tracking-wider" style={{ color: isLight ? '#64748B' : '#94A3B8' }}>
+                  <p className="text-xs font-medium mb-2 uppercase tracking-wider text-slate-400">
                     Idioma
                   </p>
                   <LanguageSwitcherMobile />
