@@ -4,21 +4,23 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { MessageCircle } from 'lucide-react'
 import ServiceFilter from './ServiceFilter.jsx'
-import ServiceCard, { SERVICE_CATEGORIES } from './ServiceCard.jsx'
+import ServiceCard, { SERVICE_CATEGORIES, SERVICE_STATUS } from './ServiceCard.jsx'
 import ServiceDemoPanel from './ServiceDemoPanel.jsx'
+import ComingSoonModal from './ComingSoonModal.jsx'
 import ButtonPrimary from '../../ui/ButtonPrimary.jsx'
 import { fadeInUp, staggerContainer, viewportProps } from '../../../hooks/useScrollAnimation.js'
 
 /* IDs de todos los servicios disponibles en el catálogo */
 const ALL_SERVICES = [
-  'inventory', 'billing', 'ecommerce', 'chatbot',
-  'webdev', 'mobileapp', 'reservations', 'analytics',
+  'inventory', 'billing', 'prestamos', 'ecommerce', 'chatbot',
+  'webdev', 'mobileapp', 'school', 'reservations', 'analytics',
 ]
 
 export default function ServicesSection() {
   const { t } = useTranslation(['services', 'common'])
   const [activeFilter, setActiveFilter] = useState('all')
   const [activeServiceId, setActiveServiceId] = useState('inventory')
+  const [comingSoonService, setComingSoonService] = useState(null)
 
   /* Filtrar servicios según la categoría activa */
   const filteredServices = activeFilter === 'all'
@@ -29,6 +31,26 @@ export default function ServicesSection() {
   const resolvedActiveId = filteredServices.includes(activeServiceId)
     ? activeServiceId
     : filteredServices[0] ?? 'inventory'
+
+  const handleServiceClick = (id) => {
+    const status = SERVICE_STATUS[id]
+    if (status === 'comingSoon') {
+      setComingSoonService({
+        id,
+        name: t(`services:services.${id}.name`),
+        description: t(`services:services.${id}.description`),
+      })
+    }
+    setActiveServiceId(id)
+  }
+
+  const openComingSoonById = (id) => {
+    setComingSoonService({
+      id,
+      name: t(`services:services.${id}.name`),
+      description: t(`services:services.${id}.description`),
+    })
+  }
 
   const scrollToContact = () => {
     document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })
@@ -110,7 +132,7 @@ export default function ServicesSection() {
                 <ServiceCard
                   serviceId={id}
                   active={id === resolvedActiveId}
-                  onClick={() => setActiveServiceId(id)}
+                  onClick={() => handleServiceClick(id)}
                 />
               </motion.div>
             ))}
@@ -128,8 +150,16 @@ export default function ServicesSection() {
           <ServiceDemoPanel
             serviceId={resolvedActiveId}
             onContact={scrollToContact}
+            onOpenComingSoonModal={openComingSoonById}
           />
         </motion.div>
+
+        {/* Modal interactivo cuando se selecciona un servicio PRÓXIMAMENTE */}
+        <ComingSoonModal
+          isOpen={!!comingSoonService}
+          onClose={() => setComingSoonService(null)}
+          service={comingSoonService}
+        />
 
         {/* PARTE E: CTA final para sistemas personalizados */}
         <motion.div

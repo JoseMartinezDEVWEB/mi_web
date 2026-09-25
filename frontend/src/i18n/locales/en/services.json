@@ -19,6 +19,16 @@
       "description": "Invoicing system with NCF, automatic ITBIS and compliance with the Dominican Republic's DGII.",
       "features": ["NCF generation", "18% ITBIS calculation", "Multi-client", "3-step wizard", "Invoice printing", "Complete history"]
     },
+    "prestamos": {
+      "name": "Loan management system",
+      "description": "Comprehensive client control, automated amortization calculation and streamlined collection with official receipts.",
+      "features": ["Complete client management", "Automatic installment calculation", "Detailed amortization schedule", "Multiple payment frequencies", "Payment recording & thermal receipts", "Portfolio & balance tracking"]
+    },
+    "school": {
+      "name": "Complete school system",
+      "description": "Comprehensive academic and administrative management: enrollment, grades, attendance, teachers and student payments.",
+      "features": ["Student & enrollment management", "Grade tracking and report cards", "Teacher attendance & scheduling", "Tuition & fee billing", "Parent and student portal", "Academic reports and analytics"]
+    },
     "ecommerce": {
       "name": "E-commerce",
       "description": "Complete online store with shopping cart, integrated payments and administration panel.",

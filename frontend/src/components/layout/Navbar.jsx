@@ -14,7 +14,6 @@ const NAV_LINKS = [
   { key: 'nav.home', href: '#hero' },
   { key: 'nav.services', href: '#servicios' },
   { key: 'nav.about', href: '#nosotros' },
-  { key: 'nav.portfolio', href: '#portafolio' },
   { key: 'nav.blog', href: '#blog' },
   { key: 'nav.contact', href: '#contacto' },
 ]
@@ -36,7 +35,7 @@ export default function Navbar() {
 
   /* Detectar sección activa con IntersectionObserver */
   useEffect(() => {
-    const sectionIds = ['hero', 'servicios', 'nosotros', 'portafolio', 'blog', 'contacto']
+    const sectionIds = ['hero', 'servicios', 'nosotros', 'blog', 'contacto']
     const observers = []
 
     sectionIds.forEach((id) => {

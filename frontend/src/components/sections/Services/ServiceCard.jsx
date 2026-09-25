@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import {
   Package, FileText, ShoppingCart, Bot, Globe, Smartphone,
-  Calendar, BarChart2,
+  Calendar, BarChart2, Landmark, GraduationCap,
 } from 'lucide-react'
 import Badge from '../../ui/Badge.jsx'
 
@@ -11,22 +11,26 @@ import Badge from '../../ui/Badge.jsx'
 const SERVICE_ICONS = {
   inventory:    { Icon: Package,    bg: 'rgba(0,212,255,0.1)',   color: '#00D4FF' },
   billing:      { Icon: FileText,   bg: 'rgba(212,175,55,0.1)',  color: '#D4AF37' },
+  prestamos:    { Icon: Landmark,   bg: 'rgba(212,175,55,0.1)',  color: '#D4AF37' },
   ecommerce:    { Icon: ShoppingCart, bg: 'rgba(16,185,129,0.1)', color: '#10b981' },
   chatbot:      { Icon: Bot,        bg: 'rgba(139,92,246,0.1)',  color: '#8b5cf6' },
   webdev:       { Icon: Globe,      bg: 'rgba(0,153,204,0.1)',   color: '#0099CC' },
   mobileapp:    { Icon: Smartphone, bg: 'rgba(245,158,11,0.1)',  color: '#f59e0b' },
+  school:       { Icon: GraduationCap, bg: 'rgba(59,130,246,0.1)', color: '#3b82f6' },
   reservations: { Icon: Calendar,   bg: 'rgba(239,68,68,0.1)',   color: '#ef4444' },
   analytics:    { Icon: BarChart2,  bg: 'rgba(99,102,241,0.1)',  color: '#6366f1' },
 }
 
 /* Mapeo de serviceId a estado del badge visible en la tarjeta */
-const SERVICE_STATUS = {
+export const SERVICE_STATUS = {
   inventory:    'demoAvailable',
   billing:      'demoAvailable',
+  prestamos:    'demoAvailable',
   ecommerce:    'demoAvailable',
   chatbot:      'beta',
   webdev:       'demoAvailable',
   mobileapp:    'demoAvailable',
+  school:       'comingSoon',
   reservations: 'comingSoon',
   analytics:    'comingSoon',
 }
@@ -35,10 +39,12 @@ const SERVICE_STATUS = {
 export const SERVICE_CATEGORIES = {
   inventory:    'management',
   billing:      'management',
+  prestamos:    'management',
   ecommerce:    'digital',
   chatbot:      'ai',
   webdev:       'digital',
   mobileapp:    'digital',
+  school:       'management',
   reservations: 'management',
   analytics:    'ai',
 }

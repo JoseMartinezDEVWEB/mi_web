@@ -19,6 +19,16 @@
       "description": "Système de facturation avec NCF, ITBIS automatique et conformité avec la DGII de la République Dominicaine.",
       "features": ["Génération de NCF", "Calcul ITBIS 18 %", "Multi-clients", "Assistant en 3 étapes", "Impression de factures", "Historique complet"]
     },
+    "prestamos": {
+      "name": "Système de gestion de prêts",
+      "description": "Gestion complète des clients, calcul automatisé d'amortissement et encaissements rapides avec reçus officiels.",
+      "features": ["Gestion des clients", "Calcul automatique des échéances", "Tableau d'amortissement complet", "Fréquences de paiement flexibles", "Reçus thermiques de paiement", "Suivi des soldes et créances"]
+    },
+    "school": {
+      "name": "Système scolaire complet",
+      "description": "Gestion académique et administrative globale : inscriptions, notes, présences, enseignants et paiements des mensualités.",
+      "features": ["Gestion des élèves et inscriptions", "Bulletins et relevés de notes", "Contrôle des présences", "Facturation des mensualités", "Portail parents et élèves", "Rapports et statistiques"]
+    },
     "ecommerce": {
       "name": "E-commerce",
       "description": "Boutique en ligne complète avec panier d'achat, paiements intégrés et panneau d'administration.",

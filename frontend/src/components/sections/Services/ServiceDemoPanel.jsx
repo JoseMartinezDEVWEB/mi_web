@@ -10,6 +10,7 @@ import Badge from '../../ui/Badge.jsx'
 /* Importar todas las demos */
 import InventoryDemo from './demos/InventoryDemo.jsx'
 import InvoiceDemo from './demos/InvoiceDemo.jsx'
+import PrestamoDemo from './demos/prestamos/PrestamoDemo.jsx'
 import EcommerceDemo from './demos/EcommerceDemo.jsx'
 import AgentDemo from './demos/AgentDemo.jsx'
 import WebDemo from './demos/WebDemo.jsx'
@@ -19,6 +20,7 @@ import AppDemo from './demos/AppDemo.jsx'
 const DEMO_COMPONENTS = {
   inventory: InventoryDemo,
   billing: InvoiceDemo,
+  prestamos: PrestamoDemo,
   ecommerce: EcommerceDemo,
   chatbot: AgentDemo,
   webdev: WebDemo,
@@ -29,15 +31,17 @@ const DEMO_COMPONENTS = {
 const SERVICE_STATUS = {
   inventory: 'demoAvailable',
   billing: 'demoAvailable',
+  prestamos: 'demoAvailable',
   ecommerce: 'demoAvailable',
   chatbot: 'beta',
   webdev: 'demoAvailable',
   mobileapp: 'demoAvailable',
+  school: 'comingSoon',
   reservations: 'comingSoon',
   analytics: 'comingSoon',
 }
 
-export default function ServiceDemoPanel({ serviceId, onContact }) {
+export default function ServiceDemoPanel({ serviceId, onContact, onOpenComingSoonModal }) {
   const { t, i18n } = useTranslation(['services', 'common'])
   const [loading, setLoading] = useState(false)
   const [prevServiceId, setPrevServiceId] = useState(serviceId)
@@ -171,12 +175,14 @@ export default function ServiceDemoPanel({ serviceId, onContact }) {
               <h4 className="font-semibold text-lg mb-2" style={{ color: '#F1F5F9' }}>
                 {t('common:badges.comingSoon')}
               </h4>
-              <p className="text-sm mb-4" style={{ color: '#94A3B8' }}>
-                Esta demo estará disponible pronto. ¿Quieres más información sobre este servicio?
+              <p className="text-sm mb-4 max-w-md" style={{ color: '#94A3B8' }}>
+                Esta demo estará disponible muy pronto. Si deseas conocer todos los detalles o agendar una demostración guiada, ¡contáctanos!
               </p>
-              <ButtonPrimary onClick={onContact}>
-                {t('common:buttons.contactUs')}
-              </ButtonPrimary>
+              <div className="flex gap-3">
+                <ButtonPrimary onClick={() => (onOpenComingSoonModal ? onOpenComingSoonModal(serviceId) : onContact())}>
+                  Agendar Demostración (WhatsApp / Telegram)
+                </ButtonPrimary>
+              </div>
             </motion.div>
           ) : (
             /* Demo del servicio seleccionado */

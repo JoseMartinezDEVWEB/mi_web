@@ -6,7 +6,6 @@ import Footer from '../components/layout/Footer.jsx'
 import Hero from '../components/sections/Hero.jsx'
 import ServicesSection from '../components/sections/Services/ServicesSection.jsx'
 import About from '../components/sections/About.jsx'
-import Portfolio from '../components/sections/Portfolio.jsx'
 import TechTicker from '../components/sections/TechTicker.jsx'
 import Testimonials from '../components/sections/Testimonials.jsx'
 import Blog from '../components/sections/Blog.jsx'
@@ -30,7 +29,6 @@ export default function HomePage() {
         <Hero />
         <ServicesSection />
         <About />
-        <Portfolio />
         <TechTicker />
         <Testimonials />
         <Blog />

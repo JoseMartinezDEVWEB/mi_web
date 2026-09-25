@@ -9,13 +9,13 @@ import api from '../../services/api.js'
 
 /* Links de las columnas del footer */
 const SERVICES_LINKS = [
-  'Inventario', 'Facturación', 'E-commerce', 'Chatbot IA',
+  'Inventario', 'Facturación', 'Préstamos', 'E-commerce', 'Chatbot IA',
   'Desarrollo Web', 'App Móvil',
 ]
 const COMPANY_LINKS = [
   { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Portafolio', href: '#portafolio' },
   { label: 'Blog', href: '#blog' },
+  { label: 'Contacto', href: '#contacto' },
 ]
 const LEGAL_LINKS = [
   { label: 'Privacidad', href: '#' },
