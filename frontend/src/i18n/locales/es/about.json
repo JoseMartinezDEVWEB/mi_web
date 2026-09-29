@@ -1,17 +1,15 @@
 {
   "sectionLabel": "Sobre nosotros",
-  "title": "Democratizando la tecnología en Latinoamérica",
-  "paragraph1": "Somos una empresa dominicana fundada en 2019 con la misión de hacer que las soluciones tecnológicas de clase mundial sean accesibles para empresas de todos los tamaños en República Dominicana y Latinoamérica.",
-  "paragraph2": "Nuestro equipo de desarrolladores, diseñadores y estrategas digitales trabaja con pasión para crear sistemas que no solo funcionan perfectamente, sino que generan resultados medibles y transforman la manera en que nuestros clientes hacen negocios.",
+  "label": "Sobre nosotros",
+  "title": "Democratizando la tecnología en República Dominicana",
+  "paragraph1": "Somos una empresa dominicana fundada en 2024 con la misión de hacer que las soluciones tecnológicas de vanguardia e innovación digital sean accesibles para empresas y profesionales en toda la República Dominicana.",
+  "paragraph2": "Con más de 6 años de experiencia en ingeniería y desarrollo tecnológico, nuestro equipo crea sistemas empresariales a la medida, plataformas web de alto rendimiento y soluciones de Inteligencia Artificial que optimizan operaciones y multiplican los resultados de nuestros clientes.",
   "timeline": {
     "title": "Nuestra historia",
     "events": [
-      { "year": "2019", "event": "Fundación de J4TechnologyIsNow en Santo Domingo" },
-      { "year": "2020", "event": "Primer sistema empresarial ERP implementado" },
-      { "year": "2021", "event": "Expansión al desarrollo de aplicaciones móviles" },
-      { "year": "2022", "event": "Integración de Inteligencia Artificial en nuestros sistemas" },
-      { "year": "2023", "event": "Más de 30 clientes activos en 5 países de Latinoamérica" },
-      { "year": "2024", "event": "Lanzamiento de la Suite Empresarial Completa J4" }
+      { "year": "2024", "text": "Fundación de J4TechnologyIsNow en República Dominicana y lanzamiento de soluciones de desarrollo web y automatización." },
+      { "year": "2025", "text": "Despliegue e implementación de sistemas a medida para farmacias, comercios, facturación e inventario en tiempo real." },
+      { "year": "2026", "text": "Evolución hacia la integración de Inteligencia Artificial avanzada, agentes autónomos y transformación digital integral." }
     ]
   },
   "values": {

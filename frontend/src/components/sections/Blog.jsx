@@ -35,7 +35,7 @@ export default function Blog() {
               border: '1px solid rgba(0, 212, 255, 0.2)',
             }}
           >
-            {t('blog:label')}
+            {t('blog:label') || t('blog:sectionLabel')}
           </motion.span>
 
           {/* Título principal */}

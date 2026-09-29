@@ -106,7 +106,7 @@ export default function Testimonials() {
               border: '1px solid rgba(212, 175, 55, 0.25)',
             }}
           >
-            {t('testimonials:label')}
+            {t('testimonials:label') || t('testimonials:sectionLabel')}
           </motion.span>
 
           {/* Título principal */}

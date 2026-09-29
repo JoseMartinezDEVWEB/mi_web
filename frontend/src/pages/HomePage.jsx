@@ -18,7 +18,7 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>J4TechnologyIsNow — Transformación Digital en República Dominicana</title>
-        <meta name="description" content="Desarrollamos sistemas empresariales, apps móviles, e-commerce y soluciones de IA para empresas dominicanas y latinoamericanas." />
+        <meta name="description" content="Desarrollamos sistemas empresariales a medida, apps móviles, páginas web de alto impacto y soluciones de IA para empresas y profesionales en República Dominicana." />
       </Helmet>
 
       {/* Navbar fijo en la parte superior */}

@@ -1,17 +1,15 @@
 {
   "sectionLabel": "À propos de nous",
-  "title": "Démocratiser la technologie en Amérique latine",
-  "paragraph1": "Nous sommes une entreprise dominicaine fondée en 2019 avec la mission de rendre les solutions technologiques de classe mondiale accessibles aux entreprises de toutes tailles en République Dominicaine et en Amérique latine.",
-  "paragraph2": "Notre équipe de développeurs, de designers et de stratèges numériques travaille avec passion pour créer des systèmes qui non seulement fonctionnent parfaitement, mais génèrent des résultats mesurables et transforment la façon dont nos clients font des affaires.",
+  "label": "À propos de nous",
+  "title": "Démocratiser la technologie en République Dominicaine",
+  "paragraph1": "Nous sommes une entreprise dominicaine fondée en 2024 avec la mission de rendre les solutions technologiques de pointe et l'innovation numérique accessibles aux entreprises et professionnels dans toute la République Dominicaine.",
+  "paragraph2": "Avec plus de 6 ans d'expérience dans l'ingénierie et le développement technologique, notre équipe crée des systèmes sur mesure, des plateformes web haute performance et des solutions d'IA qui optimisent les opérations et démultiplient les résultats.",
   "timeline": {
     "title": "Notre histoire",
     "events": [
-      { "year": "2019", "event": "Fondation de J4TechnologyIsNow à Saint-Domingue" },
-      { "year": "2020", "event": "Premier système ERP d'entreprise implémenté" },
-      { "year": "2021", "event": "Expansion dans le développement d'applications mobiles" },
-      { "year": "2022", "event": "Intégration de l'Intelligence Artificielle dans nos systèmes" },
-      { "year": "2023", "event": "Plus de 30 clients actifs dans 5 pays d'Amérique latine" },
-      { "year": "2024", "event": "Lancement de la Suite Entreprise Complète J4" }
+      { "year": "2024", "text": "Fondation de J4TechnologyIsNow en République Dominicaine et lancement des services web et d'automatisation." },
+      { "year": "2025", "text": "Déploiement de systèmes sur mesure pour pharmacies, commerces, facturation et gestion de stocks." },
+      { "year": "2026", "text": "Intégration avancée de l'Intelligence Artificielle, agents autonomes et transformation numérique complète." }
     ]
   },
   "values": {

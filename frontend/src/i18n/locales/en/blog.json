@@ -1,31 +1,154 @@
 {
   "sectionLabel": "Knowledge and trends",
+  "label": "Knowledge and trends",
   "title": "Blog",
-  "subtitle": "Articles on technology and digital transformation",
+  "subtitle": "Strategic articles on technology, digital transformation, and artificial intelligence",
+  "viewAll": "View all articles",
   "articles": [
     {
-      "id": "digitalize-2025",
-      "title": "5 Reasons to Digitalize Your Business in 2025",
+      "id": "razones-digitalizar-negocio-2026",
+      "title": "10 Strategic Reasons to Digitalize Your Business in 2026: Complete Transformation Guide",
       "category": "Digital Transformation",
-      "readTime": "5 min read",
-      "excerpt": "Digitalization is no longer optional. Discover the 5 main reasons why your company must make the digital leap this year.",
-      "date": "2025-01-15"
+      "readTime": "13 min read",
+      "date": "2026-01-15",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "Digitalization in 2026 is no longer optional; it has become the essential engine of profitability, operational cost reduction, and business scalability.",
+      "sections": [
+        {
+          "title": "1. The Business Inflection Point in 2026",
+          "subtitle": "From reactive survival to sustainable competitive advantage",
+          "paragraphs": [
+            "The business landscape in 2026 has witnessed the fastest acceleration of digital tools in history. Companies delaying digitalization face rising operational expenses, losing ground to agile competitors and failing to meet modern consumer expectations.",
+            "Digitalizing a business in 2026 goes far beyond social media profiles. It means rebuilding operational workflows with cloud software, task automation, live data analytics, and effortless customer experiences."
+          ],
+          "highlight": "In 2026, 78% of B2B and B2C clients prefer providers offering instant digital interactions, self-service portals, and full transparency."
+        },
+        {
+          "title": "2. Intelligent Automation: Slashing Errors and Operational Costs",
+          "subtitle": "Eliminating manual bottlenecks that drain team productivity",
+          "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Process automation frees up valuable hours for high-impact strategic tasks.",
+          "paragraphs": [
+            "Manual data entry, invoice reconciliation, and inventory tracking are major drains on capital. Custom digital systems eliminate up to 90% of human error and save over 15 hours per employee each week."
+          ],
+          "list": [
+            "Electronic billing integrated directly with accounting reports.",
+            "Automated inventory management with predictive low-stock alerts.",
+            "Instant digital receipts and payment reminders.",
+            "Real-time sync between POS systems and e-commerce channels."
+          ]
+        },
+        {
+          "title": "3. Data-Driven Decision Making",
+          "subtitle": "Replacing guesswork with real-time actionable metrics",
+          "paragraphs": [
+            "With custom dashboards and analytics, business owners gain real-time visibility into profit margins, client acquisition costs, and peak sales hours from any smartphone or laptop."
+          ]
+        },
+        {
+          "title": "4. Omnichannel Presence and 24/7 Sales",
+          "subtitle": "Your business open and capturing leads 365 days a year",
+          "image": "https://images.unsplash.com/photo-1556742049-0a67e5572243?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Online payment gateways and digital catalogs expand reach without borders.",
+          "paragraphs": [
+            "Unlike physical stores with set schedules and local footprints, a digitalized business sells continuously across regions through integrated payment gateways and instant messaging."
+          ]
+        },
+        {
+          "title": "5. Scalability Without Overhead Surges",
+          "subtitle": "Growing revenue while maintaining lean, agile operations",
+          "paragraphs": [
+            "Digital infrastructure processes thousands of transactions seamlessly without the need to double administrative staff or physical space."
+          ],
+          "highlight": "Digitally transformed businesses achieve a 35% average increase in profitability and 50% faster client response times."
+        }
+      ]
     },
     {
-      "id": "react-vs-nextjs",
-      "title": "React vs Next.js: Which one to choose for your project?",
-      "category": "Web Development",
-      "readTime": "7 min read",
-      "excerpt": "We compare both technologies with real use cases to help you make the best decision for your next web project.",
-      "date": "2025-01-08"
+      "id": "beneficios-pagina-web-personal-negocio",
+      "title": "Benefits of Having a Personal or Business Website: The Ultimate Digital Asset in 2026",
+      "category": "Web Development & Brand",
+      "readTime": "14 min read",
+      "date": "2026-02-10",
+      "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "Why owning your website is the foundation of professional credibility, client acquisition, and digital independence in 2026.",
+      "sections": [
+        {
+          "title": "1. Why Relying Solely on Social Media Is a Critical Risk",
+          "subtitle": "Building on your own digital property vs. rented land",
+          "paragraphs": [
+            "Relying solely on social networks exposes you to algorithm shifts, account suspensions, and declining reach. A custom website is your sovereign digital headquarters."
+          ],
+          "highlight": "A custom website provides 100% control over your message, conversions, and client database."
+        },
+        {
+          "title": "2. High-Impact Benefits for Personal Brands and Professionals",
+          "subtitle": "Digital resume, interactive portfolio, and industry authority",
+          "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+          "caption": "A polished personal website establishes instant authority and attracts premium clients.",
+          "paragraphs": [
+            "Traditional static PDF resumes are obsolete. An interactive personal landing page highlights your case studies, verified testimonials, and allows direct booking."
+          ],
+          "list": [
+            "Interactive digital resume showcasing dynamic achievements.",
+            "Authority positioning as an industry expert.",
+            "Frictionless contact link for LinkedIn, NFC business cards, and email signatures.",
+            "Direct monetization with automated booking and consulting payments."
+          ]
+        },
+        {
+          "title": "3. Strategic Advantages for Businesses",
+          "subtitle": "Trust, local SEO positioning, and automated lead generation",
+          "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+          "caption": "A corporate website converts visitors into loyal customers round the clock.",
+          "paragraphs": [
+            "Over 85% of clients search on Google before purchasing. Having a fast, modern website builds instant trust and captures inbound inquiries 24/7."
+          ]
+        }
+      ]
     },
     {
-      "id": "ai-ecommerce-rd",
-      "title": "How AI is Revolutionizing E-Commerce in the DR",
+      "id": "como-ia-esta-revolucionando-el-mundo",
+      "title": "How Artificial Intelligence Is Revolutionizing the World in 2026",
       "category": "Artificial Intelligence",
-      "readTime": "6 min read",
-      "excerpt": "Artificial intelligence is changing the rules of the game for Dominican e-commerce. Learn about the most important trends.",
-      "date": "2024-12-28"
+      "readTime": "15 min read",
+      "date": "2026-03-01",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "An in-depth analysis of autonomous AI agents, enterprise cognitive automation, healthcare breakthroughs, and the evolving future of human work.",
+      "sections": [
+        {
+          "title": "1. From Basic Generative AI to Autonomous Agentic Systems",
+          "subtitle": "Systems that reason, plan, and execute multi-step workflows",
+          "paragraphs": [
+            "In 2026, AI has transitioned from simple chat assistants to autonomous agentic architectures capable of executing end-to-end business operations with precision."
+          ],
+          "highlight": "The AI revolution in 2026 is about multiplying human potential, analytical depth, and execution speed ten-fold."
+        },
+        {
+          "title": "2. Business Operations and Hyper-Personalized Commerce",
+          "subtitle": "Context-aware customer service and predictive logistics",
+          "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+          "caption": "AI models process thousands of real-time variables to optimize decision making.",
+          "paragraphs": [
+            "Modern AI agents resolve complex support tickets with natural empathy and live database synchronization, while predictive supply chain models eliminate inventory waste."
+          ],
+          "list": [
+            "Multilingual 24/7 conversational agents.",
+            "Dynamic pricing and demand forecasting.",
+            "Sub-second financial fraud detection.",
+            "Instant document and contract processing."
+          ]
+        },
+        {
+          "title": "3. Healthcare, Biotech, and Software Acceleration",
+          "subtitle": "Precision diagnostics and 10x developer productivity",
+          "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+          "caption": "AI-accelerated software engineering drastically reduces time-to-market.",
+          "paragraphs": [
+            "AI-powered medical imaging achieves over 95% diagnostic precision in early detection, while coding agents allow small teams to ship robust platforms in days."
+          ]
+        }
+      ]
     }
   ]
 }

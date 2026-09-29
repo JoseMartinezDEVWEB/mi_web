@@ -15,7 +15,7 @@ export default function BlogPage() {
     <>
       <Helmet>
         <title>Blog — J4TechnologyIsNow</title>
-        <meta name="description" content="Artículos sobre transformación digital, desarrollo web e inteligencia artificial para empresas latinoamericanas." />
+        <meta name="description" content="Artículos sobre transformación digital, desarrollo web e inteligencia artificial para empresas y profesionales en República Dominicana." />
       </Helmet>
 
       <Navbar />

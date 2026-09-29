@@ -1,17 +1,15 @@
 {
   "sectionLabel": "Sobre nós",
-  "title": "Democratizando a tecnologia na América Latina",
-  "paragraph1": "Somos uma empresa dominicana fundada em 2019 com a missão de tornar as soluções tecnológicas de classe mundial acessíveis para empresas de todos os tamanhos na República Dominicana e na América Latina.",
-  "paragraph2": "Nossa equipe de desenvolvedores, designers e estrategistas digitais trabalha com paixão para criar sistemas que não apenas funcionam perfeitamente, mas geram resultados mensuráveis e transformam a maneira como nossos clientes fazem negócios.",
+  "label": "Sobre nós",
+  "title": "Democratizando a tecnologia na República Dominicana",
+  "paragraph1": "Somos uma empresa dominicana fundada em 2024 com a missão de tornar as soluções tecnológicas de ponta e inovação digital acessíveis para empresas e profissionais em toda a República Dominicana.",
+  "paragraph2": "Com mais de 6 anos de experiência em engenharia e desenvolvimento de software, nossa equipe cria sistemas empresariais sob medida, plataformas web de alto desempenho e soluções de IA que otimizam operações e multiplicam resultados.",
   "timeline": {
     "title": "Nossa história",
     "events": [
-      { "year": "2019", "event": "Fundação da J4TechnologyIsNow em Santo Domingo" },
-      { "year": "2020", "event": "Primeiro sistema ERP empresarial implementado" },
-      { "year": "2021", "event": "Expansão para o desenvolvimento de aplicativos móveis" },
-      { "year": "2022", "event": "Integração da Inteligência Artificial em nossos sistemas" },
-      { "year": "2023", "event": "Mais de 30 clientes ativos em 5 países da América Latina" },
-      { "year": "2024", "event": "Lançamento da Suite Empresarial Completa J4" }
+      { "year": "2024", "text": "Fundação da J4TechnologyIsNow na República Dominicana e lançamento de serviços de desenvolvimento web e automação." },
+      { "year": "2025", "text": "Implantação de sistemas sob medida para farmácias, comércios, faturamento e controle de estoque em tempo real." },
+      { "year": "2026", "text": "Evolução para integração avançada de Inteligência Artificial, agentes autônomos e transformação digital completa." }
     ]
   },
   "values": {

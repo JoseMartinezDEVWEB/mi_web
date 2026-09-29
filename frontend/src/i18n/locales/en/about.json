@@ -1,17 +1,15 @@
 {
   "sectionLabel": "About us",
-  "title": "Democratizing technology in Latin America",
-  "paragraph1": "We are a Dominican company founded in 2019 with the mission of making world-class technology solutions accessible to businesses of all sizes in the Dominican Republic and Latin America.",
-  "paragraph2": "Our team of developers, designers and digital strategists works with passion to create systems that not only work perfectly, but generate measurable results and transform the way our clients do business.",
+  "label": "About us",
+  "title": "Democratizing technology in the Dominican Republic",
+  "paragraph1": "We are a Dominican company founded in 2024 with the mission of making cutting-edge technology solutions and digital innovation accessible to businesses and professionals throughout the Dominican Republic.",
+  "paragraph2": "With over 6 years of experience in software engineering and technology, our team creates custom enterprise systems, high-performance web platforms, and Artificial Intelligence solutions that streamline operations and multiply our clients' results.",
   "timeline": {
     "title": "Our history",
     "events": [
-      { "year": "2019", "event": "Foundation of J4TechnologyIsNow in Santo Domingo" },
-      { "year": "2020", "event": "First enterprise ERP system implemented" },
-      { "year": "2021", "event": "Expansion into mobile application development" },
-      { "year": "2022", "event": "Integration of Artificial Intelligence into our systems" },
-      { "year": "2023", "event": "More than 30 active clients in 5 Latin American countries" },
-      { "year": "2024", "event": "Launch of the Complete J4 Enterprise Suite" }
+      { "year": "2024", "text": "Foundation of J4TechnologyIsNow in the Dominican Republic and launch of web development and automation services." },
+      { "year": "2025", "text": "Deployment and implementation of custom systems for pharmacies, retail, invoicing, and real-time inventory." },
+      { "year": "2026", "text": "Evolution toward advanced Artificial Intelligence integration, autonomous agents, and end-to-end digital transformation." }
     ]
   },
   "values": {

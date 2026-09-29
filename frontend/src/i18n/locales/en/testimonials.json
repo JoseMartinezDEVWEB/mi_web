@@ -1,5 +1,6 @@
 {
   "sectionLabel": "What our clients say",
+  "label": "What our clients say",
   "title": "Testimonials",
   "testimonials": [
     {
@@ -12,16 +13,16 @@
     {
       "id": 2,
       "name": "Carlos Rodríguez",
-      "company": "Boutique Fashion RD",
+      "company": "Pharmacist · Custom Pharmacy System",
       "initials": "CR",
-      "text": "The e-commerce they developed for us exceeded all our expectations. Online sales grew 300% in the first quarter and the administration panel is very intuitive for our team."
+      "text": "The custom system developed for my pharmacy exceeded all my expectations. Now we have complete control over medicine inventory, batches, expiration dates, and fast POS invoicing. It was essential for our business."
     },
     {
       "id": 3,
       "name": "Ana Martínez",
-      "company": "Hotel Playa Dorada",
+      "company": "Personal Landing Page · Digital Resume",
       "initials": "AM",
-      "text": "The reservation system completely changed our business. Our occupancy went from 65% to 91% thanks to the ease of booking online and the automatic confirmations that build trust with customers."
+      "text": "They built an impeccable personal landing page to digitalize my resume and professional portfolio. The modern, interactive design helped me stand out in my field and attract top-tier opportunities."
     }
   ]
 }

@@ -1,31 +1,81 @@
 {
   "sectionLabel": "Connaissances et tendances",
+  "label": "Connaissances et tendances",
   "title": "Blog",
-  "subtitle": "Articles sur la technologie et la transformation numérique",
+  "subtitle": "Articles stratégiques sur la technologie, la transformation numérique et l'intelligence artificielle",
+  "viewAll": "Voir tous les articles",
   "articles": [
     {
-      "id": "digitalize-2025",
-      "title": "5 raisons de digitaliser votre entreprise en 2025",
-      "category": "Transformation numérique",
-      "readTime": "5 min de lecture",
-      "excerpt": "La digitalisation n'est plus optionnelle. Découvrez les 5 principales raisons pour lesquelles votre entreprise doit faire le saut numérique cette année.",
-      "date": "2025-01-15"
+      "id": "razones-digitalizar-negocio-2026",
+      "title": "10 Raisons Stratégiques de Numériser Votre Entreprise en 2026",
+      "category": "Transformation Numérique",
+      "readTime": "13 min lecture",
+      "date": "2026-01-15",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "La numérisation en 2026 est devenue le moteur indispensable de la rentabilité, de la réduction des coûts et de la scalabilité des entreprises.",
+      "sections": [
+        {
+          "title": "1. Le Tournant Décisif des Entreprises en 2026",
+          "subtitle": "De la survie réactive à l'avantage concurrentiel durable",
+          "paragraphs": [
+            "Le paysage commercial de 2026 récompense l'agilité et l'automatisation. Les entreprises qui adoptent des solutions cloud et des flux de travail numériques réduisent leurs coûts et surpassent leurs concurrents."
+          ]
+        },
+        {
+          "title": "2. Automatisation Intelligente des Processus",
+          "subtitle": "Élimination des erreurs et gain de temps précieux",
+          "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+          "caption": "L'automatisation libère des heures pour des tâches stratégiques.",
+          "paragraphs": [
+            "L'intégration de systèmes sur mesure supprime les tâches manuelles répétitives et réduit les erreurs de facturation et de stock de plus de 90 %."
+          ]
+        }
+      ]
     },
     {
-      "id": "react-vs-nextjs",
-      "title": "React vs Next.js : lequel choisir pour votre projet ?",
-      "category": "Développement web",
-      "readTime": "7 min de lecture",
-      "excerpt": "Nous comparons les deux technologies avec des cas d'utilisation réels pour vous aider à prendre la meilleure décision pour votre prochain projet web.",
-      "date": "2025-01-08"
+      "id": "beneficios-pagina-web-personal-negocio",
+      "title": "Avantages d'Avoir un Site Web Personnel ou d'Entreprise en 2026",
+      "category": "Développement Web & Marque",
+      "readTime": "14 min lecture",
+      "date": "2026-02-10",
+      "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "Pourquoi un site web dédié est le pilier le plus puissant de crédibilité et d'indépendance numérique pour les professionnels et entreprises.",
+      "sections": [
+        {
+          "title": "1. L'Erreur de Dépendre Uniquement des Réseaux Sociaux",
+          "subtitle": "Construire sur son propre terrain numérique",
+          "paragraphs": [
+            "Un site web personnel ou d'entreprise garantit un contrôle total sur votre image, votre référencement et vos conversions sans dépendre des algorithmes."
+          ]
+        },
+        {
+          "title": "2. Marque Personnelle et CV Numérique",
+          "subtitle": "Mettre en valeur son expertise avec impact",
+          "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Un site personnel renforce votre autorité et attire les meilleures opportunités.",
+          "paragraphs": [
+            "Un CV interactif moderne et un portfolio en ligne permettent de convertir les opportunités professionnelles avec une grande distinction."
+          ]
+        }
+      ]
     },
     {
-      "id": "ai-ecommerce-rd",
-      "title": "Comment l'IA révolutionne le e-commerce en RD",
-      "category": "Intelligence artificielle",
-      "readTime": "6 min de lecture",
-      "excerpt": "L'intelligence artificielle change les règles du jeu pour le commerce électronique dominicain. Découvrez les tendances les plus importantes.",
-      "date": "2024-12-28"
+      "id": "como-ia-esta-revolucionando-el-mundo",
+      "title": "Comment l'Intelligence Artificielle Révolutionne le Monde Actuel en 2026",
+      "category": "Intelligence Artificielle",
+      "readTime": "15 min lecture",
+      "date": "2026-03-01",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "Une analyse approfondie des agents autonomes d'IA, de l'automatisation cognitive et de l'avenir du travail humain en 2026.",
+      "sections": [
+        {
+          "title": "1. L'Ère des Systèmes Agentiques Autonomes",
+          "subtitle": "Des systèmes capables de raisonner, planifier et exécuter",
+          "paragraphs": [
+            "En 2026, l'IA exécute des flux de travail complexes de bout en bout, transformant la productivité des entreprises et la santé."
+          ]
+        }
+      ]
     }
   ]
 }

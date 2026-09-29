@@ -1,31 +1,81 @@
 {
   "sectionLabel": "Conhecimento e tendências",
+  "label": "Conhecimento e tendências",
   "title": "Blog",
-  "subtitle": "Artigos sobre tecnologia e transformação digital",
+  "subtitle": "Artigos estratégicos sobre tecnologia, transformação digital e inteligência artificial",
+  "viewAll": "Ver todos os artigos",
   "articles": [
     {
-      "id": "digitalize-2025",
-      "title": "5 Motivos para Digitalizar seu Negócio em 2025",
+      "id": "razones-digitalizar-negocio-2026",
+      "title": "10 Razões Estratégicas para Digitalizar seu Negócio em 2026",
       "category": "Transformação Digital",
-      "readTime": "5 min de leitura",
-      "excerpt": "A digitalização não é mais opcional. Descubra os 5 principais motivos pelos quais sua empresa deve dar o salto digital este ano.",
-      "date": "2025-01-15"
+      "readTime": "13 min leitura",
+      "date": "2026-01-15",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "A digitalização em 2026 tornou-se o motor indispensável de rentabilidade, redução de custos e escalabilidade empresarial.",
+      "sections": [
+        {
+          "title": "1. O Ponto de Inflexão Empresarial em 2026",
+          "subtitle": "Da sobrevivência reativa à vantagem competitiva sustentável",
+          "paragraphs": [
+            "O mercado em 2026 exige agilidade e automação. Empresas que integram plataformas digitais na nuvem reduzem custos operacionais e aceleram o crescimento."
+          ]
+        },
+        {
+          "title": "2. Automação Inteligente de Processos",
+          "subtitle": "Eliminando tarefas manuais que drenam tempo da equipe",
+          "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+          "caption": "A automação de processos libera tempo valioso para tarefas estratégicas.",
+          "paragraphs": [
+            "Sistemas personalizados eliminam retrabalho manual em faturamento, controle de estoque e relatórios financeiros com até 90% menos erros."
+          ]
+        }
+      ]
     },
     {
-      "id": "react-vs-nextjs",
-      "title": "React vs Next.js: qual escolher para o seu projeto?",
-      "category": "Desenvolvimento Web",
-      "readTime": "7 min de leitura",
-      "excerpt": "Comparamos as duas tecnologias com casos de uso reais para ajudá-lo a tomar a melhor decisão para seu próximo projeto web.",
-      "date": "2025-01-08"
+      "id": "beneficios-pagina-web-personal-negocio",
+      "title": "Benefícios de Ter um Site Pessoal ou para seu Negócio em 2026",
+      "category": "Desenvolvimento Web & Marca",
+      "readTime": "14 min leitura",
+      "date": "2026-02-10",
+      "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "Descubra por que ter um site próprio é o ativo digital mais importante para credibilidade e atração de clientes em 2026.",
+      "sections": [
+        {
+          "title": "1. O Risco de Depender Apenas das Redes Sociais",
+          "subtitle": "Construindo em terreno próprio vs. terreno alugado",
+          "paragraphs": [
+            "Um site próprio garante controle absoluto sobre sua marca, portfólio e conversões sem ficar refém das mudanças de algoritmo."
+          ]
+        },
+        {
+          "title": "2. Marca Pessoal e Currículo Digital",
+          "subtitle": "Projetando autoridade com distinção",
+          "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80",
+          "caption": "Um site pessoal destaca sua trajetória profissional e atrai grandes oportunidades.",
+          "paragraphs": [
+            "Um currículo interativo e portfólio moderno facilitam contratações e geram credibilidade imediata no mercado."
+          ]
+        }
+      ]
     },
     {
-      "id": "ai-ecommerce-rd",
-      "title": "Como a IA está revolucionando o E-Commerce na RD",
+      "id": "como-ia-esta-revolucionando-el-mundo",
+      "title": "Como a Inteligência Artificial está Revolucionando o Mundo Atual em 2026",
       "category": "Inteligência Artificial",
-      "readTime": "6 min de leitura",
-      "excerpt": "A inteligência artificial está mudando as regras do jogo para o comércio eletrônico dominicano. Conheça as tendências mais importantes.",
-      "date": "2024-12-28"
+      "readTime": "15 min leitura",
+      "date": "2026-03-01",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "excerpt": "Uma análise profunda sobre agentes autônomos de IA, automação cognitiva em empresas e a evolução do trabalho em 2026.",
+      "sections": [
+        {
+          "title": "1. A Era dos Agentes Autônomos de IA",
+          "subtitle": "Sistemas capazes de raciocinar, planejar e executar fluxos completos",
+          "paragraphs": [
+            "Em 2026, os agentes de IA executam processos complexos de ponta a ponta, multiplicando a produtividade empresarial."
+          ]
+        }
+      ]
     }
   ]
 }

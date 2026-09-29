@@ -48,10 +48,10 @@ function useTypewriter(strings = [], speed = 50) {
 
 /* Estadísticas del hero */
 const STATS = [
-  { value: 50, suffix: '+', key: 'hero:stats.projects' },
-  { value: 30, suffix: '+', key: 'hero:stats.clients' },
-  { value: 5, suffix: '', key: 'hero:stats.experience' },
-  { value: 98, suffix: '%', key: 'hero:stats.satisfaction' },
+  { value: 15, suffix: '+', key: 'hero:stats.projects' },
+  { value: 8, suffix: '+', key: 'hero:stats.clients' },
+  { value: 6, suffix: '', key: 'hero:stats.experience' },
+  { value: 99, suffix: '%', key: 'hero:stats.satisfaction' },
 ]
 
 export default function Hero() {

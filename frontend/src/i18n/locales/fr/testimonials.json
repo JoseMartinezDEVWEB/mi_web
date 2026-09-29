@@ -1,5 +1,6 @@
 {
   "sectionLabel": "Ce que disent nos clients",
+  "label": "Ce que disent nos clients",
   "title": "Témoignages",
   "testimonials": [
     {
@@ -12,16 +13,16 @@
     {
       "id": 2,
       "name": "Carlos Rodríguez",
-      "company": "Boutique Fashion RD",
+      "company": "Pharmacien · Système pour Pharmacie",
       "initials": "CR",
-      "text": "L'e-commerce qu'ils ont développé pour nous a dépassé toutes nos attentes. Les ventes en ligne ont augmenté de 300 % au premier trimestre et le panneau d'administration est très intuitif pour notre équipe."
+      "text": "Le système sur mesure pour ma pharmacie a dépassé toutes mes attentes. Nous avons maintenant le contrôle total des stocks de médicaments par lot et date d'expiration, et une facturation rapide en caisse. Une solution indispensable."
     },
     {
       "id": 3,
       "name": "Ana Martínez",
-      "company": "Hotel Playa Dorada",
+      "company": "Landing Page Personnelle · CV Numérique",
       "initials": "AM",
-      "text": "Le système de réservation a complètement changé notre activité. Notre taux d'occupation est passé de 65 % à 91 % grâce à la facilité de réserver en ligne et aux confirmations automatiques qui inspirent confiance aux clients."
+      "text": "Ils ont créé une landing page personnelle impeccable pour numériser mon CV et mon portfolio professionnel. Le design interactif et moderne m'a permis de me démarquer et d'attirer d'excellentes opportunités."
     }
   ]
 }

@@ -49,7 +49,7 @@ export default function About() {
                 border: '1px solid rgba(212, 175, 55, 0.25)',
               }}
             >
-              {t('about:label')}
+              {t('about:label') || t('about:sectionLabel')}
             </span>
 
             {/* Título principal */}
@@ -65,7 +65,7 @@ export default function About() {
               {t('about:paragraph1')}
             </p>
 
-            {/* Segundo párrafo: democratizar tecnología en Latinoamérica */}
+            {/* Segundo párrafo */}
             <p className="text-base leading-relaxed" style={{ color: '#94A3B8' }}>
               {t('about:paragraph2')}
             </p>
@@ -138,12 +138,12 @@ export default function About() {
                       {event.year}
                     </span>
 
-                    {/* Descripción del hito en blanco/80 */}
+                    {/* Descripción del hito */}
                     <p
                       className="text-sm leading-relaxed"
                       style={{ color: 'rgba(241, 245, 249, 0.8)' }}
                     >
-                      {event.text}
+                      {event.text || event.event}
                     </p>
                   </motion.div>
                 ))}
