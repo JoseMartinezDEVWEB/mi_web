@@ -19,6 +19,15 @@ export const chatDemoLimiter = rateLimit({
   legacyHeaders: false,
 })
 
+/* Rate limit para newsletter: 5 suscripciones por IP cada 15 minutos */
+export const newsletterLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: { error: 'Has alcanzado el límite de intentos de suscripción. Por favor espera unos minutos.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+})
+
 /* Rate limit general para la API */
 export const apiLimiter = rateLimit({
   windowMs: 60 * 1000,

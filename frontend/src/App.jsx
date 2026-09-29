@@ -15,6 +15,7 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage.jsx'))
 const BlogPage = lazy(() => import('./pages/BlogPage.jsx'))
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx'))
 const AdminPage = lazy(() => import('./pages/AdminPage.jsx'))
+const LegalPage = lazy(() => import('./pages/LegalPage.jsx'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'))
 
 /* Componente de carga mientras se descargan las páginas lazy */
@@ -69,6 +70,11 @@ export default function App() {
           <Route path="/servicios" element={<ServicesPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogPostPage />} />
+          <Route path="/terminos" element={<LegalPage defaultTab="terms" />} />
+          <Route path="/privacidad" element={<LegalPage defaultTab="privacy" />} />
+          <Route path="/cookies" element={<LegalPage defaultTab="cookies" />} />
+          <Route path="/legal" element={<LegalPage defaultTab="terms" />} />
+          <Route path="/legal/:tab" element={<LegalPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
