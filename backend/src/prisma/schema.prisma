@@ -1,0 +1,97 @@
+// Schema de Prisma ORM para la base de datos PostgreSQL de J4TechnologyIsNow
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Citas agendadas por el agente IA
+model Appointment {
+  id              String   @id @default(cuid())
+  clientName      String
+  company         String?
+  phone           String
+  contactChannel  String   @default("whatsapp") // whatsapp | telegram | email
+  preferredDate   String
+  preferredTime   String?
+  projectNeed     String
+  status          String   @default("pending")  // pending | confirmed | cancelled
+  sessionId       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("appointments")
+}
+
+// Catálogo de servicios disponibles
+model Service {
+  id            String   @id @default(cuid())
+  serviceKey    String   @unique // inventory | billing | ecommerce | etc.
+  name          String
+  category      String   // management | digital | ai
+  description   String
+  features      Json     // Array de strings con funcionalidades
+  status        String   @default("active") // active | coming_soon | beta
+  demoAvailable Boolean  @default(false)
+  startingPrice Int?     // Precio inicial en DOP
+  createdAt     DateTime @default(now())
+
+  estimates     Estimate[]
+
+  @@map("services")
+}
+
+// Solicitudes de estimación de precio
+model Estimate {
+  id                String   @id @default(cuid())
+  serviceId         String
+  service           Service  @relation(fields: [serviceId], references: [id])
+  clientName        String
+  clientEmail       String
+  clientPhone       String?
+  featuresRequested Json     // Array de features seleccionados
+  notes             String?
+  estimatedDays     Int?
+  estimatedPrice    Int?     // En DOP
+  status            String   @default("pending") // pending | sent | closed
+  createdAt         DateTime @default(now())
+
+  @@map("estimates")
+}
+
+// Sesiones de demo del chat del sandbox
+model DemoSession {
+  id            String   @id @default(cuid())
+  serviceId     String?
+  sessionToken  String   @unique
+  messagesCount Int      @default(0)
+  startedAt     DateTime @default(now())
+  lastActivity  DateTime @default(now())
+
+  @@map("demo_sessions")
+}
+
+// Suscriptores al newsletter
+model Subscriber {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  confirmedAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@map("subscribers")
+}
+
+// Usuario administrador del panel
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // Hash bcrypt
+  name      String
+  createdAt DateTime @default(now())
+
+  @@map("admin_users")
+}

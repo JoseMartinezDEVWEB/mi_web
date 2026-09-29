@@ -1,0 +1,28 @@
+{
+  "sectionLabel": "Lo que dicen nuestros clientes",
+  "label": "Lo que dicen nuestros clientes",
+  "title": "Testimonios",
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "María González",
+      "company": "Distribuidora Caribeña S.R.L.",
+      "initials": "MG",
+      "text": "J4TechnologyIsNow transformó completamente nuestra operación. Antes perdíamos horas en procesos manuales, ahora todo está automatizado y nuestro equipo puede enfocarse en lo que realmente importa: crecer el negocio."
+    },
+    {
+      "id": 2,
+      "name": "Carlos Rodríguez",
+      "company": "Farmacéutico · Sistema para Farmacia",
+      "initials": "CR",
+      "text": "El sistema a medida para mi farmacia superó todas mis expectativas. Ahora tenemos el control exacto de inventario de medicamentos por lote y fecha de vencimiento, facturación rápida en caja y reportes diarios. Fue una solución clave para optimizar nuestro negocio."
+    },
+    {
+      "id": 3,
+      "name": "Ana Martínez",
+      "company": "Landing Page Personal · Currículum Digital",
+      "initials": "AM",
+      "text": "Desarrollaron una landing page personal impecable para digitalizar mi currículum y portafolio profesional. El diseño interactivo y moderno me ha permitido destacar en mi sector, captar nuevas propuestas laborales y proyectar una imagen de alto nivel."
+    }
+  ]
+}

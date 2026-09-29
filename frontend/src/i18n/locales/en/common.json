@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Schedule a Demo"
+  },
+  "footer": {
+    "tagline": "Digital transformation for businesses and professionals in the Dominican Republic",
+    "services": "Services",
+    "company": "Company",
+    "legal": "Legal",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "newsletter": "Subscribe to our newsletter",
+    "newsletterPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
+    "copyright": "All rights reserved",
+    "madeWith": "Made with ❤️ in the Dominican Republic 🇩🇴"
+  },
+  "buttons": {
+    "startNow": "Start Now",
+    "viewServices": "View Services",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "tryDemo": "Try Demo",
+    "viewPrices": "View Prices",
+    "hire": "Hire",
+    "send": "Send",
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "viewExample": "View Example",
+    "requestQuote": "Request Quote"
+  },
+  "badges": {
+    "demoAvailable": "Demo available",
+    "beta": "Beta",
+    "new": "New",
+    "comingSoon": "Coming soon"
+  },
+  "toast": {
+    "success": "Success!",
+    "error": "Error",
+    "messageSent": "Message sent successfully",
+    "subscribed": "You've subscribed to the newsletter!",
+    "copied": "Copied to clipboard"
+  }
+}

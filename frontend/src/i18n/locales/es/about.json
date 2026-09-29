@@ -1,0 +1,30 @@
+{
+  "sectionLabel": "Sobre nosotros",
+  "label": "Sobre nosotros",
+  "title": "Democratizando la tecnología en República Dominicana",
+  "paragraph1": "Somos una empresa dominicana fundada en 2024 con la misión de hacer que las soluciones tecnológicas de vanguardia e innovación digital sean accesibles para empresas y profesionales en toda la República Dominicana.",
+  "paragraph2": "Con más de 6 años de experiencia en ingeniería y desarrollo tecnológico, nuestro equipo crea sistemas empresariales a la medida, plataformas web de alto rendimiento y soluciones de Inteligencia Artificial que optimizan operaciones y multiplican los resultados de nuestros clientes.",
+  "timeline": {
+    "title": "Nuestra historia",
+    "events": [
+      { "year": "2024", "text": "Fundación de J4TechnologyIsNow en República Dominicana y lanzamiento de soluciones de desarrollo web y automatización." },
+      { "year": "2025", "text": "Despliegue e implementación de sistemas a medida para farmacias, comercios, facturación e inventario en tiempo real." },
+      { "year": "2026", "text": "Evolución hacia la integración de Inteligencia Artificial avanzada, agentes autónomos y transformación digital integral." }
+    ]
+  },
+  "values": {
+    "title": "Nuestros valores",
+    "innovation": {
+      "title": "Innovación constante",
+      "description": "Adoptamos las últimas tecnologías para ofrecer siempre soluciones de vanguardia."
+    },
+    "commitment": {
+      "title": "Compromiso total",
+      "description": "Nos involucramos profundamente en cada proyecto hasta ver los resultados que prometemos."
+    },
+    "results": {
+      "title": "Resultados medibles",
+      "description": "Cada solución que entregamos está diseñada para generar impacto cuantificable en tu negocio."
+    }
+  }
+}

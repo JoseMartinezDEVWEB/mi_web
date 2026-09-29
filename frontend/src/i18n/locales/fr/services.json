@@ -1,0 +1,79 @@
+{
+  "sectionLabel": "Catalogue de services",
+  "title": "Essayez nos systèmes avant de nous engager",
+  "subtitle": "Explorez les démos en direct — sans inscription ni carte bancaire",
+  "filters": {
+    "all": "Tous",
+    "management": "Gestion d'entreprise",
+    "digital": "Présence numérique",
+    "ai": "IA & automatisation"
+  },
+  "services": {
+    "inventory": {
+      "name": "Système d'inventaire",
+      "description": "Gérez les produits, les entrepôts et les alertes de stock en temps réel avec des rapports automatisés.",
+      "features": ["Contrôle des stocks en temps réel", "Alertes de réapprovisionnement automatiques", "Rapports et analyses", "Entrepôts multiples", "Export CSV/Excel", "Tableau de bord interactif"]
+    },
+    "billing": {
+      "name": "Facturation électronique",
+      "description": "Système de facturation avec NCF, ITBIS automatique et conformité avec la DGII de la République Dominicaine.",
+      "features": ["Génération de NCF", "Calcul ITBIS 18 %", "Multi-clients", "Assistant en 3 étapes", "Impression de factures", "Historique complet"]
+    },
+    "prestamos": {
+      "name": "Système de gestion de prêts",
+      "description": "Gestion complète des clients, calcul automatisé d'amortissement et encaissements rapides avec reçus officiels.",
+      "features": ["Gestion des clients", "Calcul automatique des échéances", "Tableau d'amortissement complet", "Fréquences de paiement flexibles", "Reçus thermiques de paiement", "Suivi des soldes et créances"]
+    },
+    "school": {
+      "name": "Système scolaire complet",
+      "description": "Gestion académique et administrative globale : inscriptions, notes, présences, enseignants et paiements des mensualités.",
+      "features": ["Gestion des élèves et inscriptions", "Bulletins et relevés de notes", "Contrôle des présences", "Facturation des mensualités", "Portail parents et élèves", "Rapports et statistiques"]
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "Boutique en ligne complète avec panier d'achat, paiements intégrés et panneau d'administration.",
+      "features": ["Catalogue de produits", "Panier d'achat", "Passerelle de paiement", "Panneau d'administration", "Gestion des commandes", "SEO optimisé"]
+    },
+    "chatbot": {
+      "name": "Agent IA / Chatbot",
+      "description": "Chatbot intelligent propulsé par Claude AI qui sert les clients, planifie des rendez-vous et qualifie les prospects 24h/24 et 7j/7.",
+      "features": ["Réponses en temps réel", "Multilingue", "Planification automatique de rendez-vous", "Intégration WhatsApp", "Historique des conversations", "Panneau de contrôle"]
+    },
+    "webdev": {
+      "name": "Développement web",
+      "description": "Sites web et applications web personnalisés avec un design moderne, responsive et orientés vers la conversion.",
+      "features": ["Design responsive", "SEO on-page", "Optimisation de la vitesse", "CMS intégré", "Formulaires de contact", "Analytics intégré"]
+    },
+    "mobileapp": {
+      "name": "Application mobile",
+      "description": "Applications mobiles natives et multiplateformes pour iOS et Android avec une expérience utilisateur exceptionnelle.",
+      "features": ["iOS et Android", "UI/UX personnalisé", "Notifications push", "Mode hors ligne", "Intégration d'API", "Publication sur les stores"]
+    },
+    "reservations": {
+      "name": "Système de réservation",
+      "description": "Plateforme de réservations et rendez-vous en ligne avec calendrier synchronisé et confirmations automatiques.",
+      "features": ["Calendrier interactif", "Confirmations automatiques", "Intégration de paiements", "Panneau de gestion", "Rappels SMS/Email", "Multi-utilisateurs"]
+    },
+    "analytics": {
+      "name": "Analytics & BI",
+      "description": "Tableau de bord Business Intelligence avec données en temps réel pour prendre de meilleures décisions commerciales.",
+      "features": ["Tableaux de bord interactifs", "KPIs en temps réel", "Rapports automatisés", "Intégration multi-sources", "Export de données", "Alertes intelligentes"]
+    }
+  },
+  "demo": {
+    "browserUrl": "demo.j4technologyisnow.com",
+    "loading": "Chargement de la démo...",
+    "customSystem": "Vous avez besoin d'un système qui n'est pas dans le catalogue ?",
+    "tellUsYourIdea": "Parlez-nous de votre idée",
+    "featuresIncluded": "Fonctionnalités incluses"
+  },
+  "estimate": {
+    "title": "Estimation du prix",
+    "projectType": "Type de projet",
+    "features": "Fonctionnalités",
+    "estimatedTime": "Temps estimé",
+    "estimatedPrice": "Prix estimé",
+    "days": "jours",
+    "getQuote": "Obtenir un devis détaillé"
+  }
+}

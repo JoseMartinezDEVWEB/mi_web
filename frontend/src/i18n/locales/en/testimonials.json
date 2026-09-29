@@ -1,0 +1,28 @@
+{
+  "sectionLabel": "What our clients say",
+  "label": "What our clients say",
+  "title": "Testimonials",
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "María González",
+      "company": "Distribuidora Caribeña S.R.L.",
+      "initials": "MG",
+      "text": "J4TechnologyIsNow completely transformed our operation. Before, we were losing hours on manual processes; now everything is automated and our team can focus on what really matters: growing the business."
+    },
+    {
+      "id": 2,
+      "name": "Carlos Rodríguez",
+      "company": "Pharmacist · Custom Pharmacy System",
+      "initials": "CR",
+      "text": "The custom system developed for my pharmacy exceeded all my expectations. Now we have complete control over medicine inventory, batches, expiration dates, and fast POS invoicing. It was essential for our business."
+    },
+    {
+      "id": 3,
+      "name": "Ana Martínez",
+      "company": "Personal Landing Page · Digital Resume",
+      "initials": "AM",
+      "text": "They built an impeccable personal landing page to digitalize my resume and professional portfolio. The modern, interactive design helped me stand out in my field and attract top-tier opportunities."
+    }
+  ]
+}

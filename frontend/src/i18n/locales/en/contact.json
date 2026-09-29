@@ -1,0 +1,33 @@
+{
+  "sectionLabel": "Let's talk",
+  "title": "Contact",
+  "subtitle": "Ready to transform your business? We are here to help you.",
+  "address": "Santo Domingo, Dominican Republic",
+  "phone": "809-613-3196",
+  "email": "j4.technologyisnow@gmail.com",
+  "schedule": "Monday to Friday, 9am to 6pm (AST)",
+  "whatsapp": "Message on WhatsApp",
+  "telegram": "Message on Telegram",
+  "emailContact": "Send email",
+  "chat": {
+    "title": "J4 Agent",
+    "online": "Online",
+    "placeholder": "Type your message...",
+    "greeting": "Hello! I'm the J4 Agent 👋 How can I help you today? Ask me about web development, billing systems, mobile apps, or contact us at 809-613-3196.",
+    "suggestions": ["What services do you offer?", "How much does a web/app cost?", "Message on WhatsApp", "Schedule a demo"],
+    "typing": "Typing...",
+    "send": "Send",
+    "rateLimitReached": "You have reached the message limit for this session."
+  },
+  "form": {
+    "name": "Full name",
+    "company": "Company",
+    "email": "Email address",
+    "phone": "Phone",
+    "service": "Service of interest",
+    "message": "Message",
+    "submit": "Send message",
+    "success": "Message sent! We will contact you soon.",
+    "error": "Error sending. Please try again."
+  }
+}

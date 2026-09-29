@@ -1,0 +1,30 @@
+{
+  "sectionLabel": "About us",
+  "label": "About us",
+  "title": "Democratizing technology in the Dominican Republic",
+  "paragraph1": "We are a Dominican company founded in 2024 with the mission of making cutting-edge technology solutions and digital innovation accessible to businesses and professionals throughout the Dominican Republic.",
+  "paragraph2": "With over 6 years of experience in software engineering and technology, our team creates custom enterprise systems, high-performance web platforms, and Artificial Intelligence solutions that streamline operations and multiply our clients' results.",
+  "timeline": {
+    "title": "Our history",
+    "events": [
+      { "year": "2024", "text": "Foundation of J4TechnologyIsNow in the Dominican Republic and launch of web development and automation services." },
+      { "year": "2025", "text": "Deployment and implementation of custom systems for pharmacies, retail, invoicing, and real-time inventory." },
+      { "year": "2026", "text": "Evolution toward advanced Artificial Intelligence integration, autonomous agents, and end-to-end digital transformation." }
+    ]
+  },
+  "values": {
+    "title": "Our values",
+    "innovation": {
+      "title": "Constant innovation",
+      "description": "We adopt the latest technologies to always offer cutting-edge solutions."
+    },
+    "commitment": {
+      "title": "Total commitment",
+      "description": "We are deeply involved in every project until we see the results we promise."
+    },
+    "results": {
+      "title": "Measurable results",
+      "description": "Every solution we deliver is designed to generate quantifiable impact on your business."
+    }
+  }
+}

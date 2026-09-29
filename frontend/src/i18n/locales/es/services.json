@@ -1,0 +1,79 @@
+{
+  "sectionLabel": "Catálogo de servicios",
+  "title": "Prueba nuestros sistemas antes de contratar",
+  "subtitle": "Explora demos en vivo — sin registro ni tarjeta",
+  "filters": {
+    "all": "Todos",
+    "management": "Gestión empresarial",
+    "digital": "Presencia digital",
+    "ai": "IA & automatización"
+  },
+  "services": {
+    "inventory": {
+      "name": "Sistema de inventario",
+      "description": "Gestiona productos, almacenes y alertas de stock en tiempo real con reportes automatizados.",
+      "features": ["Control de stock en tiempo real", "Alertas automáticas de reposición", "Reportes y análisis", "Múltiples almacenes", "Exportación CSV/Excel", "Dashboard interactivo"]
+    },
+    "billing": {
+      "name": "Facturación electrónica",
+      "description": "Sistema de facturación con NCF, ITBIS automático y cumplimiento con la DGII de República Dominicana.",
+      "features": ["Generación de NCF", "Cálculo ITBIS 18%", "Multi-cliente", "Wizard de 3 pasos", "Impresión de facturas", "Historial completo"]
+    },
+    "prestamos": {
+      "name": "Sistema de préstamos",
+      "description": "Control integral de clientes, cálculo automatizado de amortización y registro ágil de cobros con recibos oficiales.",
+      "features": ["Gestión completa de clientes", "Cálculo automático de cuotas y plazos", "Tabla de amortización detallada", "Múltiples frecuencias de pago", "Registro de cobros y recibos térmicos", "Control de saldo y estado de cartera"]
+    },
+    "school": {
+      "name": "Sistema escolar completo",
+      "description": "Gestión académica y administrativa integral: matrículas, calificaciones, control de asistencia, profesores y pagos estudiantiles.",
+      "features": ["Control de matrículas y alumnos", "Registro de calificaciones y boletines", "Asistencia y control docente", "Facturación de mensualidades", "Portal para padres y tutores", "Reportes y estadísticas académicas"]
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "Tienda en línea completa con carrito de compras, pagos integrados y panel de administración.",
+      "features": ["Catálogo de productos", "Carrito de compras", "Pasarela de pagos", "Panel de admin", "Gestión de pedidos", "SEO optimizado"]
+    },
+    "chatbot": {
+      "name": "Agente IA / Chatbot",
+      "description": "Chatbot inteligente powered by Claude AI que atiende clientes, agenda citas y califica prospectos 24/7.",
+      "features": ["Respuestas en tiempo real", "Multiidioma", "Agenda citas automáticamente", "Integración WhatsApp", "Historial de conversaciones", "Panel de control"]
+    },
+    "webdev": {
+      "name": "Desarrollo web",
+      "description": "Sitios web y aplicaciones web personalizadas con diseño moderno, responsive y orientadas a conversión.",
+      "features": ["Diseño responsive", "SEO on-page", "Optimización de velocidad", "CMS integrado", "Formularios de contacto", "Analytics integrado"]
+    },
+    "mobileapp": {
+      "name": "App móvil",
+      "description": "Aplicaciones móviles nativas y multiplataforma para iOS y Android con experiencia de usuario excepcional.",
+      "features": ["iOS y Android", "UI/UX personalizado", "Notificaciones push", "Modo offline", "Integración de APIs", "Publicación en tiendas"]
+    },
+    "reservations": {
+      "name": "Sistema de reservas",
+      "description": "Plataforma de reservas y citas online con calendario sincronizado y confirmaciones automáticas.",
+      "features": ["Calendario interactivo", "Confirmaciones automáticas", "Integración de pagos", "Panel de gestión", "Recordatorios SMS/Email", "Multiusuario"]
+    },
+    "analytics": {
+      "name": "Analytics & BI",
+      "description": "Dashboard de Business Intelligence con datos en tiempo real para tomar mejores decisiones de negocio.",
+      "features": ["Dashboards interactivos", "KPIs en tiempo real", "Reportes automatizados", "Integración multi-fuente", "Exportación de datos", "Alertas inteligentes"]
+    }
+  },
+  "demo": {
+    "browserUrl": "demo.j4technologyisnow.com",
+    "loading": "Cargando demo...",
+    "customSystem": "¿Necesitas un sistema que no está en el catálogo?",
+    "tellUsYourIdea": "Cuéntanos tu idea",
+    "featuresIncluded": "Funcionalidades incluidas"
+  },
+  "estimate": {
+    "title": "Estimación de precio",
+    "projectType": "Tipo de proyecto",
+    "features": "Funcionalidades",
+    "estimatedTime": "Tiempo estimado",
+    "estimatedPrice": "Precio estimado",
+    "days": "días",
+    "getQuote": "Obtener cotización detallada"
+  }
+}

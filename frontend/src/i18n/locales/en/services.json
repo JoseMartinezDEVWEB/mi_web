@@ -1,0 +1,79 @@
+{
+  "sectionLabel": "Service catalog",
+  "title": "Try our systems before hiring",
+  "subtitle": "Explore live demos — no registration or credit card required",
+  "filters": {
+    "all": "All",
+    "management": "Business management",
+    "digital": "Digital presence",
+    "ai": "AI & automation"
+  },
+  "services": {
+    "inventory": {
+      "name": "Inventory system",
+      "description": "Manage products, warehouses and stock alerts in real time with automated reports.",
+      "features": ["Real-time stock control", "Automatic replenishment alerts", "Reports and analytics", "Multiple warehouses", "CSV/Excel export", "Interactive dashboard"]
+    },
+    "billing": {
+      "name": "Electronic invoicing",
+      "description": "Invoicing system with NCF, automatic ITBIS and compliance with the Dominican Republic's DGII.",
+      "features": ["NCF generation", "18% ITBIS calculation", "Multi-client", "3-step wizard", "Invoice printing", "Complete history"]
+    },
+    "prestamos": {
+      "name": "Loan management system",
+      "description": "Comprehensive client control, automated amortization calculation and streamlined collection with official receipts.",
+      "features": ["Complete client management", "Automatic installment calculation", "Detailed amortization schedule", "Multiple payment frequencies", "Payment recording & thermal receipts", "Portfolio & balance tracking"]
+    },
+    "school": {
+      "name": "Complete school system",
+      "description": "Comprehensive academic and administrative management: enrollment, grades, attendance, teachers and student payments.",
+      "features": ["Student & enrollment management", "Grade tracking and report cards", "Teacher attendance & scheduling", "Tuition & fee billing", "Parent and student portal", "Academic reports and analytics"]
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "description": "Complete online store with shopping cart, integrated payments and administration panel.",
+      "features": ["Product catalog", "Shopping cart", "Payment gateway", "Admin panel", "Order management", "SEO optimized"]
+    },
+    "chatbot": {
+      "name": "AI Agent / Chatbot",
+      "description": "Intelligent chatbot powered by Claude AI that serves customers, schedules appointments and qualifies leads 24/7.",
+      "features": ["Real-time responses", "Multilingual", "Automatic appointment scheduling", "WhatsApp integration", "Conversation history", "Control panel"]
+    },
+    "webdev": {
+      "name": "Web development",
+      "description": "Custom websites and web applications with modern, responsive design focused on conversion.",
+      "features": ["Responsive design", "On-page SEO", "Speed optimization", "Integrated CMS", "Contact forms", "Integrated analytics"]
+    },
+    "mobileapp": {
+      "name": "Mobile app",
+      "description": "Native and cross-platform mobile applications for iOS and Android with exceptional user experience.",
+      "features": ["iOS and Android", "Custom UI/UX", "Push notifications", "Offline mode", "API integration", "Store publishing"]
+    },
+    "reservations": {
+      "name": "Reservation system",
+      "description": "Online booking and appointment platform with synchronized calendar and automatic confirmations.",
+      "features": ["Interactive calendar", "Automatic confirmations", "Payment integration", "Management panel", "SMS/Email reminders", "Multi-user"]
+    },
+    "analytics": {
+      "name": "Analytics & BI",
+      "description": "Business Intelligence dashboard with real-time data to make better business decisions.",
+      "features": ["Interactive dashboards", "Real-time KPIs", "Automated reports", "Multi-source integration", "Data export", "Smart alerts"]
+    }
+  },
+  "demo": {
+    "browserUrl": "demo.j4technologyisnow.com",
+    "loading": "Loading demo...",
+    "customSystem": "Do you need a system that is not in the catalog?",
+    "tellUsYourIdea": "Tell us your idea",
+    "featuresIncluded": "Features included"
+  },
+  "estimate": {
+    "title": "Price estimate",
+    "projectType": "Project type",
+    "features": "Features",
+    "estimatedTime": "Estimated time",
+    "estimatedPrice": "Estimated price",
+    "days": "days",
+    "getQuote": "Get detailed quote"
+  }
+}
